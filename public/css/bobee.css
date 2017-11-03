@@ -1,0 +1,84 @@
+.banner-wrapper{
+    margin-top: 40px;
+}
+.bobee-title {
+     display: none;
+ }
+
+ .bobee-title p {
+     margin: 0 10px;
+     color: white;
+     font-size: 1.4em;
+ }
+
+
+.fb-login-row {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.fb-login-block {
+  display: inline-block;
+}
+
+.fb-status {
+  text-align: center;
+  color: white;
+}
+
+ @media screen and (min-width: 768px) {
+     .banner-wrapper{
+        margin-top: 160px;
+    }
+     .bobee-title {
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 8vh;
+         background-color: #080605;
+     }
+     .bobee-title p {
+         letter-spacing: 5px;
+         font-size: 2.5em;
+     }
+     ul.bobee-navbar-nav {
+         float: none;
+         position: relative;
+         width: 500px;
+         margin: 0 auto;
+     }
+     ul#bobee-navbar-nav li a {
+         font-size: 1.5em;
+         color: #EAE7E7;
+     }
+ }
+
+ .navbar-bobee {
+     background-color: #831318;
+     border-color: #831318;
+ }
+
+ body {
+     background-color: #831318;
+ }
+
+ .bobee-navbar-collapse {
+     background-color: #1E1819;
+ }
+
+ .bobee-navbar-header {
+     background-color: #1E1819;
+ }
+
+ .navbar-default .bobee-navbar-brand {
+     color: white;
+ }
+ /*
+@media (min-width: 768px){
+.bobee-navbar-nav {
+    float:none;
+    position:relative;
+    width:auto;
+    margin: 0 auto;
+}
+}

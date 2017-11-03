@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" method="POST" style="margin:200px auto 0 auto; width:50%; font-size:1.5em;">
+        {{success}}
+        <br>
+        <label for="winRate">勝率(1-99)</label>
+        <input style="width:50px;" type="number" size="5" max="99" min="1" step="1" name="winRate" type="text" value="{{gameConfig.winRate}}">
+        <br>
+        <label for="dailyPlayLimit">一天玩幾次(1-100)</label>
+        <input type="number" min="1" max="100" step="1" name="dailyPlayLimit" type="number" value="{{gameConfig.dailyPlayLimit}}">
+        <br>
+        <button style="width:120px; height:30px;">送出</button>
+    </form>
+
+</body>
+
+</html>

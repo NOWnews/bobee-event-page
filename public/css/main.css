@@ -1,0 +1,245 @@
+/* bootstrap 中 Normalize.css 沒reset的 */
+
+body {
+  background-color: #222;
+}
+
+menu,
+ol,
+ul {
+  padding: 0;
+}
+
+dd {
+  margin: 0;
+}
+
+.row.row-grid [class*="col-"]+[class*="col-"] {
+  margin-top: 15px;
+}
+
+@media (min-width: 1200px) {
+  .row.row-grid [class*="col-lg-"]+[class*="col-lg-"] {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .row.row-grid [class*="col-md-"]+[class*="col-md-"] {
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .row.row-grid [class*="col-sm-"]+[class*="col-sm-"] {
+    margin-top: 0;
+  }
+}
+
+
+/* bootstrap 中 Normalize.css 沒reset的 end */
+
+.fix-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1;
+}
+
+.fix-nav ul {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.fix-nav ul li {
+  list-style: none;
+  background-clip: content-box;
+  padding: 0 10px 0 10px;
+  height: 50px;
+  background-color: orange;
+  width: 33.3%;
+  float: left;
+  text-align: center;
+}
+
+.banner {
+  position: relative;
+  margin: 20px auto 0;
+  overflow:hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 100%;
+}
+
+.game {
+  position: relative;
+  margin-top: 20px;
+}
+
+.rewards {
+  margin-top: 20px;
+}
+
+.news {
+  margin-top: 20px;
+}
+
+.ads {
+  margin-top: 20px;
+}
+
+.footer {
+  margin-top: 20px;
+  height: 100px;
+}
+
+.fire {
+  position: absolute;
+  z-index: 2;
+}
+
+.f1 {
+  top: 35%;
+  left: 1.5%;
+}
+
+.f2 {
+  top: 8%;
+  left: 13%;
+}
+
+.f3 {
+  top: 6%;
+  left: 58%;
+}
+
+.f4 {
+  top: 70%;
+  left: 63%;
+}
+
+.f5 {
+  top: 80%;
+  left: 88%;
+}
+
+.f1 img {
+  width: 35%;
+}
+
+.f2 img {
+  width: 50%;
+}
+
+.f3 img {
+  width: 35%;
+}
+
+.f4 img {
+  width: 48%;
+}
+
+.f5 img {
+  width: 40%;
+}
+
+
+.fg1 {
+  top: 40%;
+  left: 62%;
+}
+
+.fg2 {
+  top: 8%;
+  left: 87%;
+}
+
+.fg1 img {
+  width: 20%;
+}
+
+.fg2 img {
+  width: 70%;
+}
+
+.paper-money{
+  top:10%;
+  left:5%;
+}
+
+.bg-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #222;
+  opacity: 0.3;
+  z-index: 3;
+}
+
+.machine-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: url("../img/ghost-machine.png");
+  background-size: 100%;
+}
+
+.contact-form-div-wrapper {
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+  height: 100%
+}
+
+.contact-form-div {
+  position: absolute;
+  background-color: white;
+  border: 20px solid white;
+  border-radius: 20px;
+  left: 20%;
+  top: 20%;
+  width: 50%;
+}
+
+.contact-form-div h3 {
+  text-align: center;
+}
+
+.prevent-cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+}
+
+.fb-login-row {
+  text-align: center;
+  margin: 0 0 20px 0;
+}
+
+.fb-login-block {
+  display: inline-block;
+}
+
+.fb-status {
+  text-align: center;
+  color: white;
+}
+
+.game-description {
+  padding-left:5px;
+  width: 100%;
+  color: white;
+}
+
+.game-description h1 {
+  text-align: center;
+}
+
+.game-description ul li {
+  margin-left:5px;
+  text-align: left;
+  font-size: 1.2em;
+}
