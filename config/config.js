@@ -23,7 +23,7 @@ var config = {
         app: {
             name: 'ghost-festival'
         },
-        port: process.env.PORT || 8080,
+        port: process.env.PORT || 80,
         db: 'mongodb://localhost/ghost-festival-production',
         facebook: {
             appId: '426928670995788'
