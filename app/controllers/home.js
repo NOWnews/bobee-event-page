@@ -137,7 +137,6 @@ router.get('/statistic', async function(req, res) {
 
         //計算是今日第幾個機會數
         var todayOppotunity = gameConfig.dailyPlayLimit;
-        debug('todayOppotunity..',todayOppotunity);
         var todayStart = moment.tz('Asia/Taipei').startOf('day');
         var todayEnd = moment.tz('Asia/Taipei').endOf('day');
 
@@ -151,15 +150,11 @@ router.get('/statistic', async function(req, res) {
             isHoly = log.result === 'holy';
             if(isHoly){
                 ++count;
-                debug('count++',count);
-                debug('mostHolyCount',mostHolyCount);
             }else{
                 count = 0;
             }
             if(count > mostHolyCount){
                 mostHolyCount = count;
-                debug('count>mostHolyCount',`count ${count} mostHolyCount ${mostHolyCount}`);
-
             }
 
             //計算是今日第幾個機會數
@@ -167,7 +162,6 @@ router.get('/statistic', async function(req, res) {
             if(createdAt.isSameOrAfter(todayStart) && createdAt.isSameOrBefore(todayEnd)){
                 todayGameLog.push(log);
             }
-            debug('@@@@',mostHolyCount);
         });
         //計算是今日第幾個機會數
         _.forEach(todayGameLog, log =>{
@@ -179,7 +173,6 @@ router.get('/statistic', async function(req, res) {
             if(!passFirstNoHoly){
             }
             if(log.result !== 'holy'){
-                debug('log.result !== holy',log.result);
                 --todayOppotunity;
             }
         });
