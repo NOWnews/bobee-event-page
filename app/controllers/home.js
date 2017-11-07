@@ -2,11 +2,16 @@ var express = require('express'),
     router = express.Router(),
     mongoose = require('mongoose'),
     GameLog = mongoose.model('GameLog'),
-    Contact = mongoose.model('Contact'),
+    User = mongoose.model('User'),
     moment = require('moment-timezone'),
-    gameConfig = require('../../config/gameConfig.js'),
     config = require('../../config/config.js'),
-    MobileDetect = require('mobile-detect')
+    gameConfig = require('../../config/gameConfig.js'),
+    MobileDetect = require('mobile-detect'),
+    axios = require('axios'),
+    Debug = require('debug'),
+    _ = require('lodash'),
+    debug = Debug('bobee-event-page/app/controllers/home');
+
 module.exports = function(app) {
     app.use('/', router);
 };
@@ -15,41 +20,183 @@ module.exports = function(app) {
 router.get('/', function(req, res, next) {
     md = new MobileDetect(req.headers['user-agent']);
     var md = new MobileDetect(req.headers['user-agent']);
-    console.log('md.mobile()',md.mobile());
-    console.log('md.tablet()',md.tablet());
-    console.log(' md.mobile() || md.tablet() || false,', md.mobile() || md.tablet() || false);
     var isMobileOrTablet = md.mobile() || md.tablet() || false;
     res.render('index', {
-        isMobileOrTablet : isMobileOrTablet,
+        isMobileOrTablet: isMobileOrTablet,
         facebookAppId: config.facebook.appId,
-        NODE_ENV : process.env.NODE_ENV || 'development'
+        NODE_ENV: process.env.NODE_ENV || 'development'
     });
 });
 
-router.get('/test', function(req, res, next) {
-    md = new MobileDetect(req.headers['user-agent']);
-    var md = new MobileDetect(req.headers['user-agent']);
-    console.log('md.mobile()',md.mobile());
-    console.log('md.tablet()',md.tablet());
-    console.log(' md.mobile() || md.tablet() || false,', md.mobile() || md.tablet() || false);
-    var isMobileOrTablet = md.mobile() || md.tablet() || false;
-    res.render('test', {
-        isMobileOrTablet : isMobileOrTablet,
-        facebookAppId: config.facebook.appId,
-        NODE_ENV : process.env.NODE_ENV || 'development'
-    });
+router.post('/login', async(req, res) => {
+    try {
+        if (req.session.user && req.session.user.facebookId === req.body.authResponse.userID) {
+            debug(`User ${req.session.user.facebookId} has logined!! %j`);
+            return res.sendStatus(200);
+        }
+        var {
+            authResponse: {
+                accessToken,
+                userID
+            }
+        } = req.body;
+
+        var fbApi = 'https://graph.facebook.com/me?';
+        var queryStr = `access_token=${accessToken}`
+        var {
+            data
+        } = await axios.get(`${fbApi}${queryStr}`);
+
+        if (!data) {
+            throw new Error('使用者提供的Token不正確或Facebook API壞掉');
+        }
+
+        var user = await User.findOne({
+            facebookId: data.id
+        });
+
+        if (!user) {
+            user = await User.create({
+                facebookId: data.id
+            });
+            debug(`User ${user.facebookId} has created!!`);
+        }
+
+        req.session.user = user;
+        debug(`User ${req.session.user.facebookId} has logined!!`);
+        return res.sendStatus(200);
+
+    } catch (err) {
+        console.error('post /login err', err);
+        return res.sendStatus(500);
+    }
 });
 
-router.get('/play',async function(req, res){
-    /* 擲杯的機率
-    *  2/4 聖杯, 1/4 笑杯, 1/4 陰杯
-    */
+router.get('/play', async function(req, res) {
+    try {
+        /* 擲杯的機率
+         *  2/4 聖杯, 1/4 笑杯, 1/4 陰杯
+         */
+        var results = ['holy', 'holy', 'smile', 'negative'];
+        //test
+        // results = results.concat(['holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy', 'holy'])
+        //test
+        var randomIndex = Math.floor(Math.random() * results.length);
+        var randomResult = results[randomIndex];
 
-    var results = ['holy', 'holy', 'smile', 'negative'];
-    var randomIndex = Math.floor(Math.random() * results.length);
-    var randomResult =  results[randomIndex];
-    res.json({result : randomResult});
+        var todayStart = moment.tz('Asia/Taipei').startOf('day');
+        var todayEnd = moment.tz('Asia/Taipei').endOf('day');
+
+        debug('req.session.user.facebookId', req.session.user.facebookId);
+
+        var todayNotHolyGameCount = await GameLog.find({
+            facebookId: req.session.user.facebookId,
+            createdAt: {
+                $gte: todayStart,
+                $lte: todayEnd
+            }
+        })
+        .where('result').ne('holy')
+        .count();
+
+        var dailyPlayLimit = gameConfig.dailyPlayLimit;
+        debug('todayNotHolyGameCount',todayNotHolyGameCount);
+
+        if (todayNotHolyGameCount < dailyPlayLimit) {
+            await GameLog.create({
+                facebookId: req.session.user.facebookId,
+                result: randomResult
+            })
+        }else{
+            return res.json({
+                overGameLimit : true
+            });
+        }
+        var hasNextGame = (todayNotHolyGameCount + 1) < dailyPlayLimit;
+
+        res.json({
+            result: randomResult,
+            hasNextGame: hasNextGame
+        });
+    } catch (err) {
+        console.error('get /play err', err);
+    }
+
 });
+
+router.get('/statistic', async function(req, res) {
+        var allUserGameLog = await GameLog.find({
+            facebookId: req.session.user.facebookId
+        }).sort({'createdAt' : -1});
+
+        //計算歷史最高連續聖杯數
+        var todayGameLog = [];
+        var mostHolyCount = 0;
+        var count = 0;
+        var isHoly = false;
+
+        //計算是今日第幾個機會數
+        var todayOppotunity = gameConfig.dailyPlayLimit;
+        debug('todayOppotunity..',todayOppotunity);
+        var todayStart = moment.tz('Asia/Taipei').startOf('day');
+        var todayEnd = moment.tz('Asia/Taipei').endOf('day');
+
+        //計算目前有幾個連續聖杯
+        var passFirstNoHoly = false;
+        var currentComboNumber = 0;
+
+        _.forEach(allUserGameLog, log => {
+
+            //計算歷史最高連續聖杯數
+            isHoly = log.result === 'holy';
+            if(isHoly){
+                ++count;
+                debug('count++',count);
+                debug('mostHolyCount',mostHolyCount);
+            }else{
+                count = 0;
+            }
+            if(count > mostHolyCount){
+                mostHolyCount = count;
+                debug('count>mostHolyCount',`count ${count} mostHolyCount ${mostHolyCount}`);
+
+            }
+
+            //計算是今日第幾個機會數
+            var createdAt = moment.tz(log.createdAt, 'Asia/Taipei');
+            if(createdAt.isSameOrAfter(todayStart) && createdAt.isSameOrBefore(todayEnd)){
+                todayGameLog.push(log);
+            }
+            debug('@@@@',mostHolyCount);
+        });
+        //計算是今日第幾個機會數
+        _.forEach(todayGameLog, log =>{
+            if(log.result === 'holy' && !passFirstNoHoly){
+                ++currentComboNumber;
+            }else{
+                passFirstNoHoly = true;
+            }
+            if(!passFirstNoHoly){
+            }
+            if(log.result !== 'holy'){
+                debug('log.result !== holy',log.result);
+                --todayOppotunity;
+            }
+        });
+
+        debug('stat %o',{
+            mostHolyCount,
+            todayOppotunity
+        });
+        res.json({
+            mostHolyCount,
+            todayOppotunity,
+            currentComboNumber
+        })
+
+});
+
+
 
 // router.post('/record', async function(req, res, next) {
 

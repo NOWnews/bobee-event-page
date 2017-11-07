@@ -1,19 +1,16 @@
-// Example model
-
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var ContactSchema = new Schema({
-
+var UserSchema = new Schema({
     facebookId: {
         type: String,
         default: null
     },
-    facebookEmail: {
+    name: {
         type: String,
         default: null
     },
-    name: {
+    nickname: {
         type: String,
         default: null
     },
@@ -24,10 +21,9 @@ var ContactSchema = new Schema({
     email: {
         type: String,
         default: null
-    },
-
+    }
 }, {
-    timestamps: {}
+    timestamps: true
 });
 
-mongoose.model('Contact', ContactSchema);
+mongoose.model('User', UserSchema);

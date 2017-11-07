@@ -73,6 +73,10 @@
  .navbar-default .bobee-navbar-brand {
      color: white;
  }
+.game-stat-div{
+    color:white;
+    font-size:2em;
+}
  /*
 @media (min-width: 768px){
 .bobee-navbar-nav {
