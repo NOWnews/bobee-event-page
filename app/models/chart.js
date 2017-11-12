@@ -3,20 +3,24 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var GameLogSchema = new Schema({
+var ChartSchema = new Schema({
     facebookId: {
         type: Schema.Types.String,
         required: true,
         default: null
     },
-    result: {
-        type: Schema.Types.String,
+    mostHolyCount: {
+        type: Schema.Types.Number,
         required: true,
-        enum: ['holy', 'smile', 'negative'],
-        default: null
+        default: 0
+    },
+    reachedTime:{
+        type: Schema.Types.Date,
+        required: true
     }
+
 }, {
     timestamps: true
 });
 
-mongoose.model('GameLog', GameLogSchema);
+mongoose.model('Chart', ChartSchema);

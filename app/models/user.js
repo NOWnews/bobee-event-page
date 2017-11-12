@@ -3,23 +3,23 @@ var mongoose = require('mongoose'),
 
 var UserSchema = new Schema({
     facebookId: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     },
     name: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     },
     nickname: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     },
     phone: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     },
     email: {
-        type: String,
+        type: Schema.Types.String,
         default: null
     }
 }, {

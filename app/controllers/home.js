@@ -90,26 +90,26 @@ router.get('/play', async function(req, res) {
         debug('req.session.user.facebookId', req.session.user.facebookId);
 
         var todayNotHolyGameCount = await GameLog.find({
-            facebookId: req.session.user.facebookId,
-            createdAt: {
-                $gte: todayStart,
-                $lte: todayEnd
-            }
-        })
-        .where('result').ne('holy')
-        .count();
+                facebookId: req.session.user.facebookId,
+                createdAt: {
+                    $gte: todayStart,
+                    $lte: todayEnd
+                }
+            })
+            .where('result').ne('holy')
+            .count();
 
         var dailyPlayLimit = gameConfig.dailyPlayLimit;
-        debug('todayNotHolyGameCount',todayNotHolyGameCount);
+        debug('todayNotHolyGameCount', todayNotHolyGameCount);
 
         if (todayNotHolyGameCount < dailyPlayLimit) {
             await GameLog.create({
                 facebookId: req.session.user.facebookId,
                 result: randomResult
             })
-        }else{
+        } else {
             return res.json({
-                overGameLimit : true
+                overGameLimit: true
             });
         }
         var hasNextGame = (todayNotHolyGameCount + 1) < dailyPlayLimit;
@@ -125,68 +125,106 @@ router.get('/play', async function(req, res) {
 });
 
 router.get('/statistic', async function(req, res) {
-        var allUserGameLog = await GameLog.find({
-            facebookId: req.session.user.facebookId
-        }).sort({'createdAt' : -1});
+    var allUserGameLog = await GameLog.find({
+        facebookId: req.session.user.facebookId
+    }).sort({
+        'createdAt': -1
+    });
+
+    //計算歷史最高連續聖杯數
+    var mostHolyCount = 0;
+    var count = 0;
+    var isHoly = false;
+
+    //計算是今日第幾個機會數
+    var todayGameLog = [];
+    var todayOppotunity = gameConfig.dailyPlayLimit;
+    var todayStart = moment.tz('Asia/Taipei').startOf('day');
+    var todayEnd = moment.tz('Asia/Taipei').endOf('day');
+
+    //計算目前有幾個連續聖杯
+    var passFirstNoHoly = false;
+    var currentComboNumber = 0;
+
+    _.forEach(allUserGameLog, log => {
 
         //計算歷史最高連續聖杯數
-        var todayGameLog = [];
-        var mostHolyCount = 0;
-        var count = 0;
-        var isHoly = false;
+        isHoly = log.result === 'holy';
+        if (isHoly) {
+            ++count;
+        } else {
+            count = 0;
+        }
+        if (count > mostHolyCount) {
+            mostHolyCount = count;
+        }
 
         //計算是今日第幾個機會數
-        var todayOppotunity = gameConfig.dailyPlayLimit;
-        var todayStart = moment.tz('Asia/Taipei').startOf('day');
-        var todayEnd = moment.tz('Asia/Taipei').endOf('day');
+        var createdAt = moment.tz(log.createdAt, 'Asia/Taipei');
+        if (createdAt.isSameOrAfter(todayStart) && createdAt.isSameOrBefore(todayEnd)) {
+            todayGameLog.push(log);
+        }
+    });
+    //計算是今日第幾個機會數
+    _.forEach(todayGameLog, log => {
+        if (log.result === 'holy' && !passFirstNoHoly) {
+            ++currentComboNumber;
+        } else {
+            passFirstNoHoly = true;
+        }
+        if (!passFirstNoHoly) {}
+        if (log.result !== 'holy') {
+            --todayOppotunity;
+        }
+    });
 
-        //計算目前有幾個連續聖杯
-        var passFirstNoHoly = false;
-        var currentComboNumber = 0;
+    debug('stat %o', {
+        mostHolyCount,
+        todayOppotunity
+    });
+    res.json({
+        mostHolyCount,
+        todayOppotunity,
+        currentComboNumber
+    })
 
-        _.forEach(allUserGameLog, log => {
+});
 
-            //計算歷史最高連續聖杯數
-            isHoly = log.result === 'holy';
-            if(isHoly){
-                ++count;
-            }else{
-                count = 0;
-            }
-            if(count > mostHolyCount){
-                mostHolyCount = count;
-            }
+router.get('/charts', async function(req, res) {
+    try {
+        req.query.perpage = parseInt(req.query.perpage, 10);
+        req.query.page = parseInt(req.query.page, 10);
 
-            //計算是今日第幾個機會數
-            var createdAt = moment.tz(log.createdAt, 'Asia/Taipei');
-            if(createdAt.isSameOrAfter(todayStart) && createdAt.isSameOrBefore(todayEnd)){
-                todayGameLog.push(log);
-            }
+        var perPage = req.query.perpage || 10;
+        var page = req.query.page >= 1 ? req.query.page : 1;
+        var skip = page > 1 ? (page - 1) * perPage : 0;
+
+        debug('obj %o', {
+            perPage,
+            page,
+            skip
         });
-        //計算是今日第幾個機會數
-        _.forEach(todayGameLog, log =>{
-            if(log.result === 'holy' && !passFirstNoHoly){
-                ++currentComboNumber;
-            }else{
-                passFirstNoHoly = true;
-            }
-            if(!passFirstNoHoly){
-            }
-            if(log.result !== 'holy'){
-                --todayOppotunity;
-            }
-        });
+        var gameLogs = await GameLog.find({})
+            .limit(perPage)
+            .skip(skip);
+        var gameLogsCount = await GameLog
+            .count();
 
-        debug('stat %o',{
-            mostHolyCount,
-            todayOppotunity
-        });
+        var totalPage = Math.ceil(gameLogsCount / perPage);
+        var hasPrevPage = (page - 1) >= 1;
+        var hasNextPage = (page + 1) <= totalPage;
+
+
+
         res.json({
-            mostHolyCount,
-            todayOppotunity,
-            currentComboNumber
-        })
-
+            gameLogs,
+            gameLogsCount,
+            hasPrevPage,
+            hasNextPage
+        });
+    }catch(err){
+        console.error('/get charts error',err);
+    }
 });
 
 

@@ -15,7 +15,8 @@ var config = {
         settingPageAuth: {
             user: 'nownews',
             password: '28331543'
-        }
+        },
+        mongooseDebug : true
     },
     production: {
         root: rootPath,
@@ -30,7 +31,8 @@ var config = {
         settingPageAuth: {
             user: 'nownews',
             password: '28331543'
-        }
+        },
+        mongooseDebug : false
     }
 };
 
