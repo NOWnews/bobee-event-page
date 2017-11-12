@@ -3,6 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     GameLog = mongoose.model('GameLog'),
     User = mongoose.model('User'),
+    Chart = mongoose.model('Chart'),
     moment = require('moment-timezone'),
     config = require('../../config/config.js'),
     gameConfig = require('../../config/gameConfig.js'),
@@ -190,7 +191,7 @@ router.get('/statistic', async function(req, res) {
 
 });
 
-router.get('/charts', async function(req, res) {
+router.get('/chart', async function(req, res) {
     try {
         req.query.perpage = parseInt(req.query.perpage, 10);
         req.query.page = parseInt(req.query.page, 10);
@@ -204,21 +205,28 @@ router.get('/charts', async function(req, res) {
             page,
             skip
         });
-        var gameLogs = await GameLog.find({})
+        var chart = await Chart.find({})
             .limit(perPage)
             .skip(skip);
-        var gameLogsCount = await GameLog
+        var chartCount = await Chart
             .count();
 
-        var totalPage = Math.ceil(gameLogsCount / perPage);
+        var totalPage = Math.ceil(chartCount / perPage);
         var hasPrevPage = (page - 1) >= 1;
         var hasNextPage = (page + 1) <= totalPage;
 
 
 
-        res.json({
-            gameLogs,
-            gameLogsCount,
+        // res.json({
+        //     chart,
+        //     chartCount,
+        //     hasPrevPage,
+        //     hasNextPage
+        // });
+
+        res.render('chart',{
+            chart,
+            chartCount,
             hasPrevPage,
             hasNextPage
         });
