@@ -11,6 +11,8 @@ mongoose.connect(config.db, {
   useMongoClient: true,
 });
 mongoose.Promise = bluebird;
+mongoose.set('debug', config.mongooseDebug);
+
 var db = mongoose.connection;
 db.on('error', function () {
   throw new Error('unable to connect to database at ' + config.db);
@@ -28,3 +30,7 @@ app.listen(config.port, function () {
   console.log('Express server listening on port ' + config.port);
 });
 
+//cronjob start
+
+var cronjob = require('./cron');
+cronjob();
