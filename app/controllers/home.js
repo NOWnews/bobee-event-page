@@ -199,24 +199,45 @@ router.get('/chart', async function(req, res) {
         var perPage = req.query.perpage || 10;
         var page = req.query.page >= 1 ? req.query.page : 1;
         var skip = page > 1 ? (page - 1) * perPage : 0;
+        var nickname = req.query.nickname;
 
         debug('obj %o', {
             perPage,
             page,
             skip
         });
-        var chart = await Chart.find({})
+
+        debug('nickname..',nickname);
+        var cursor = Chart.find({});
+        var totalCursor = Chart.find({});
+        if (nickname) {
+            cursor.where({
+                nickname: new RegExp(nickname, 'i')
+            });
+            totalCursor.where({
+                nickname: new RegExp(nickname, 'i')
+            });
+
+        }
+        debug('perPage...',perPage);
+        var chart = await totalCursor
             .limit(perPage)
             .skip(skip);
-        var chartCount = await Chart
-            .count();
+        var chartCount = await totalCursor.count();
 
         var totalPage = Math.ceil(chartCount / perPage);
         var hasPrevPage = (page - 1) >= 1;
         var hasNextPage = (page + 1) <= totalPage;
-
-
-
+        var currentPage = page;
+        // hasPrevPage = true;
+        // hasNextPage = true;
+        var pageData = {
+            totalPage,
+            hasPrevPage,
+            hasNextPage,
+            currentPage
+        };
+        debug('chart %j', chart);
         // res.json({
         //     chart,
         //     chartCount,
@@ -224,14 +245,14 @@ router.get('/chart', async function(req, res) {
         //     hasNextPage
         // });
 
-        res.render('chart',{
+        res.render('chart', {
             chart,
             chartCount,
-            hasPrevPage,
-            hasNextPage
+            pageData,
+            NODE_ENV: process.env.NODE_ENV || 'development'
         });
-    }catch(err){
-        console.error('/get charts error',err);
+    } catch (err) {
+        console.error('/get charts error', err);
     }
 });
 

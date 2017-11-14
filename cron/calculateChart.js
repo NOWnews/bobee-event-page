@@ -52,6 +52,7 @@ module.exports = new cron.CronJob({
                 await Chart.findOneAndUpdate({
                     facebookId : logs[0].facebookId,
                 },{
+                    nickname: logs[0].nickname,
                     facebookId : logs[0].facebookId,
                     mostHolyCount,
                     reachedTime

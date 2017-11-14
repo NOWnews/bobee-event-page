@@ -35,7 +35,7 @@
          justify-content: center;
          align-items: center;
          height: 8vh;
-         background-color: #080605;
+         background-color: #53302E;
      }
      .bobee-title p {
          letter-spacing: 5px;
@@ -77,12 +77,60 @@
     color:white;
     font-size:2em;
 }
- /*
-@media (min-width: 768px){
-.bobee-navbar-nav {
-    float:none;
-    position:relative;
-    width:auto;
-    margin: 0 auto;
+
+.bobee-chart-header{
+    background-color:#53302E;
 }
+
+.bobee-chart-header span{
+    color: #F3D664;
+    font-size:2em;
+}
+.bobee-chart-header label{
+    background-color: #000000;
+    padding: 4px 10px 6px 4px;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.bobee-chart-body{
+    background-color: #1D1919;
+    font-size:1em;
+    text-align: center;
+}
+
+.bobee-chart-body .table-head{
+    color:#CB6A77;
+    font-size:1em;
+}
+
+.bobee-chart-body div.table-body{
+    color:white;
+}
+
+.bobee-chart-body div.table-body:nth-child(2) {
+    color:#F3D664;
+}
+
+
+.pageBtn{
+    color:white;
+    border:2px solid white;
+    padding:5px;
+    margin:5px;
+}
+
+.chart-title{
+    text-align: center;
+}
+
+.search-input{
+    background-color: #1E1818;
+    border:0;
+    height:34px;
+    width:50%;
+    color:white;
+    /* left: -5px; */
+    position: relative;
 }
