@@ -41,7 +41,7 @@ router.post('/login', async(req, res) => {
                 email
             } = req.session.user;
             if (!name || !nickname || !phone || !email) {
-                debug('req.session.user %j',req.session.user);
+                debug('req.session.user %j', req.session.user);
                 return res.json({
                     hasContactInfo: false
                 });
@@ -233,6 +233,7 @@ router.get('/chart', async function(req, res) {
         });
 
         debug('nickname..', nickname);
+
         var cursor = Chart.find({});
         var totalCursor = Chart.find({});
         if (nickname) {
@@ -255,8 +256,7 @@ router.get('/chart', async function(req, res) {
         var hasPrevPage = (page - 1) >= 1;
         var hasNextPage = (page + 1) <= totalPage;
         var currentPage = page;
-        // hasPrevPage = true;
-        // hasNextPage = true;
+
         var pageData = {
             totalPage,
             hasPrevPage,
@@ -264,17 +264,12 @@ router.get('/chart', async function(req, res) {
             currentPage
         };
         debug('chart %j', chart);
-        // res.json({
-        //     chart,
-        //     chartCount,
-        //     hasPrevPage,
-        //     hasNextPage
-        // });
 
         res.render('chart', {
             chart,
             chartCount,
             pageData,
+            nickname,
             NODE_ENV: process.env.NODE_ENV || 'development'
         });
     } catch (err) {
@@ -323,7 +318,7 @@ router.post('/contactInfo', async function(req, res, next) {
             email
         }, {
             upsert: true,
-            new : true
+            new: true
         });
         req.session.user = user;
         return res.sendStatus(200);

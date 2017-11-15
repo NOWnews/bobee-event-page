@@ -41,18 +41,13 @@ module.exports = new cron.CronJob({
                         mostHolyCount = count;
                     }
                 });
-
-
-                debug('Chart going to be saved %O', {
+                var user = await User.findOne({
                     facebookId : logs[0].facebookId,
-                    mostHolyCount,
-                    reachedTime
                 });
-
                 await Chart.findOneAndUpdate({
                     facebookId : logs[0].facebookId,
                 },{
-                    nickname: logs[0].nickname,
+                    nickname: user.nickname,
                     facebookId : logs[0].facebookId,
                     mostHolyCount,
                     reachedTime
