@@ -14,6 +14,7 @@ function updateStat() {
 function statusChangeCallback() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
+            document.getElementById('status').innerHTML = ''
             $.post("/login", response)
                 .done(function(res) {
                     if (res.hasContactInfo) {

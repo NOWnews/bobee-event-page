@@ -288,13 +288,15 @@ router.post('/contactInfo', async function(req, res, next) {
             phone: Joi.number().max(30).required(),
             email: Joi.string().email().required()
         });
+
         debug('contactInfo data %j', req.body);
+
         const result = Joi.validate(req.body, schema);
         debug('result.error', result.error);
         if (result.error) {
             return res.status(400).send(result.error.details);
         }
-        next();
+        return next();
 
     } catch (err) {
         console.error('post /contactInfo validation', err);
@@ -328,6 +330,63 @@ router.post('/contactInfo', async function(req, res, next) {
 
 });
 
+router.get('/gamelog/:facebookId', async function(req, res, next) {
+    try {
+        var {
+            facebookId
+        } = req.params;
+        var user, error;
+
+        user = await User.findOne({
+            facebookId
+        });
+
+        debug('gamelog user', user);
+
+        if (!user) {
+            return res.redirect('../chart');
+        }
+
+        req.query.perpage = parseInt(req.query.perpage, 10);
+        req.query.page = parseInt(req.query.page, 10);
+
+        var perPage = req.query.perpage || 10;
+        var page = req.query.page >= 1 ? req.query.page : 1;
+        var skip = page > 1 ? (page - 1) * perPage : 0;
+
+        var gameLogs = await GameLog.find({
+                facebookId
+            })
+            .limit(perPage)
+            .skip(skip);;
+        var totalGameLogsCount = await GameLog.find({
+                facebookId
+            })
+            .count();
+
+        var totalPage = Math.ceil(totalGameLogsCount / perPage);
+        var hasPrevPage = (page - 1) >= 1;
+        var hasNextPage = (page + 1) <= totalPage;
+        var currentPage = page;
+
+        var pageData = {
+            totalPage,
+            hasPrevPage,
+            hasNextPage,
+            currentPage
+        };
+
+
+
+        res.render('userGameLogs', {
+            user,
+            gameLogs,
+            pageData
+        });
+    } catch (err) {
+        console.error('get /gamelog ', err);
+    }
+});
 
 
 // router.post('/record', async function(req, res, next) {

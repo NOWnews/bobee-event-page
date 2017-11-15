@@ -1,4 +1,3 @@
-// Example model
 import moment from 'moment-timezone';
 
 var mongoose = require('mongoose'),

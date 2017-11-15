@@ -39,8 +39,8 @@
                 <span style="color:white; font-size:2em;" id="status"></span>
                 <div class="gif-wrapper">
                     {% if isMobileOrTablet %}
-                    <img class="img-responsive img-game-init" src="./img/game-init-mobile.png" alt=""> {% else %}
-                    <img class="img-responsive img-game-init" src="./img/game-init.png" alt=""> {% endif %}
+                    <img class="img-responsive img-game-init" src="/img/game-init-mobile.png" alt=""> {% else %}
+                    <img class="img-responsive img-game-init" src="/img/game-init.png" alt=""> {% endif %}
                 </div>
             </div>
         </div>
@@ -130,4 +130,4 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 </script>
-<audio id="audio" style="display:none;" src="./audio/shaking-audio.ogg"></audio> {% endblock %}
+<audio id="audio" style="display:none;" src="/audio/shaking-audio.ogg"></audio> {% endblock %}

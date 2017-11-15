@@ -16,17 +16,17 @@
     <title>擲杯博運氣 - 保庇NOW擲杯大賽</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="./css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="./css/navbar-fixed-top.css" rel="stylesheet">
+    <link href="/css/navbar-fixed-top.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="./js/ie-emulation-modes-warning.js"></script>
+    <script src="/js/ie-emulation-modes-warning.js"></script>
     {#
     <script src="./js/rellax.min.js"></script> #}
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -37,9 +37,9 @@
 
     {#
     <link rel="stylesheet" href="css/slot-machine-style.css"> #}
-    <link href="./css/main.css" rel="stylesheet">
-    <link href="./css/animate.css" rel="stylesheet">
-    <link href="./css/bobee.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/bobee.css" rel="stylesheet">
 
 
 </head>
@@ -49,7 +49,7 @@
     <nav class="navbar navbar-default navbar-bobee navbar-fixed-top">
         <div class="container">
             <div class="bobee-title">
-                <a href="../"><p>擲杯博運氣 - 保庇NOW擲杯大賽 </p></a>
+                <a href="/"><p>擲杯博運氣 - 保庇NOW擲杯大賽 </p></a>
             </div>
             <div class="navbar-header bobee-navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -58,7 +58,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-                <a class="navbar-brand bobee-navbar-brand visible-xs-block" href="../">擲杯博運氣 - 保庇NOW擲杯大賽</a>
+                <a class="navbar-brand bobee-navbar-brand visible-xs-block" href="/">擲杯博運氣 - 保庇NOW擲杯大賽</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse bobee-navbar-collapse">
                 <ul class="nav navbar-nav bobee-navbar-nav" id="bobee-navbar-nav">
@@ -101,10 +101,10 @@
     <script>
         window.jQuery || document.write('<script src="./js/jquery.min.js"><\/script>')
     </script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/jquery.unevent.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.unevent.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="./js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/ie10-viewport-bug-workaround.js"></script>
 
     <script src="js/main.js"></script>
 
