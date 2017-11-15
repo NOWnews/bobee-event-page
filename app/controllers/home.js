@@ -285,7 +285,7 @@ router.post('/contactInfo', async function(req, res, next) {
         const schema = Joi.object().keys({
             name: Joi.string().max(30).required(),
             nickname: Joi.string().max(30).required(),
-            phone: Joi.number().max(30).required(),
+            phone: Joi.string().max(30).required(),
             email: Joi.string().email().required()
         });
 
