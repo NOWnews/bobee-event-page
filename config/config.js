@@ -1,37 +1,38 @@
 var path = require('path'),
     rootPath = path.normalize(__dirname + '/..'),
     env = process.env.NODE_ENV || 'development';
-
 var config = {
     development: {
         root: rootPath,
         app: {
-            name: 'ghost-festival'
+            name: 'bobee-event'
         },
         port: process.env.PORT || 8080,
-        db: 'mongodb://localhost/ghost-festival-development',
+        db: 'mongodb://localhost/bobee-event-development',
         facebook: {
             appId: '781203158725096'
         },
         settingPageAuth: {
             user: 'nownews',
             password: '28331543'
-        }
+        },
+        mongooseDebug : true
     },
     production: {
         root: rootPath,
         app: {
-            name: 'ghost-festival'
+            name: 'bobee-event'
         },
         port: process.env.PORT || 80,
-        db: 'mongodb://localhost/ghost-festival-production',
+        db: 'mongodb://localhost/bobee-event-production',
         facebook: {
-            appId: '426928670995788'
+            appId: '781203158725096'
         },
         settingPageAuth: {
             user: 'nownews',
             password: '28331543'
-        }
+        },
+        mongooseDebug : false
     }
 };
 

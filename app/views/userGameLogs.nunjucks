@@ -1,0 +1,69 @@
+{% extends "./base.nunjucks" %} {% block body %}
+<div class="container banner-wrapper">
+
+    <div class="banner">
+
+        {#chart head #}
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2  bobee-chart-header">
+                <div class="col-sm-11 col-sm-push-1 chart-title">
+                    <span>{{ user.nickname }} 遊戲歷程</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#chart body #}
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 bobee-chart-body">
+            <div class="row table-head">
+                <div class="col-xs-5 col-xs-push-1">時間</div>
+                <div class="col-xs-6">結果</div>
+            </div>
+            {% for log in gameLogs %}
+            <div class="row table-body">
+                <div class="col-xs-5 col-xs-push-1">{{ log.formatCreatedAt }}</div>
+                <div class="col-xs-6">{{ log.formatResult }}</div>
+            </div>
+            {% endfor %} {#
+            <div class="row table-body">
+                <div class="col-xs-2 col-xs-push-1">1</div>
+                <div class="col-xs-3">小奎</div>
+                <div class="col-xs-3">12</div>
+                <div class="col-xs-3">2017/10/11 19:22 00:00</div>
+            </div>
+            <div class="row table-body">
+                <div class="col-xs-2 col-xs-push-1">1</div>
+                <div class="col-xs-3">小奎</div>
+                <div class="col-xs-3">12</div>
+                <div class="col-xs-3">2017/10/11 19:22 00:00</div>
+            </div> #}
+
+        </div>
+    </div>
+
+    {#pagination bar#}
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 bobee-chart-body">
+            <div class="row">
+                <div class="col-xs-4" style="text-align:center;">
+                    {% if pageData.hasPrevPage %}
+                    <a href="?page={{ pageData.currentPage-1 }}">
+                        <div class="pageBtn">上一頁</div>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="col-xs-4  col-xs-push-4" style="text-align:center;">
+                    {% if pageData.hasNextPage %}
+                    <a href="?page={{ pageData.currentPage+1 }}">
+                        <div class="pageBtn">下一頁</div>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %} {% block beforeBodyEnd %} {% endblock %}

@@ -1,84 +1,248 @@
-.banner-wrapper{
-    margin-top: 40px;
+.wrapper{
+    margin-bottom: 20px;
 }
+.banner-wrapper {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
 .bobee-title {
-     display: none;
- }
+    display: none;
+}
 
- .bobee-title p {
-     margin: 0 10px;
-     color: white;
-     font-size: 1.4em;
- }
-
+.bobee-title p {
+    margin: 0 10px;
+    color: white;
+    font-size: 1.4em;
+}
 
 .fb-login-row {
-  text-align: center;
-  margin: 0 0 20px 0;
+    text-align: center;
+    margin: 0 0 20px 0;
 }
 
 .fb-login-block {
-  display: inline-block;
+    display: inline-block;
 }
 
 .fb-status {
-  text-align: center;
-  color: white;
+    text-align: center;
+    color: white;
 }
 
- @media screen and (min-width: 768px) {
-     .banner-wrapper{
-        margin-top: 160px;
-    }
-     .bobee-title {
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         height: 8vh;
-         background-color: #080605;
-     }
-     .bobee-title p {
-         letter-spacing: 5px;
-         font-size: 2.5em;
-     }
-     ul.bobee-navbar-nav {
-         float: none;
-         position: relative;
-         width: 500px;
-         margin: 0 auto;
-     }
-     ul#bobee-navbar-nav li a {
-         font-size: 1.5em;
-         color: #EAE7E7;
-     }
- }
+.navbar-bobee {
+    background-color: #831318;
+    border-color: #831318;
+}
 
- .navbar-bobee {
-     background-color: #831318;
-     border-color: #831318;
- }
+body {
+    background-color: #831318;
+}
 
- body {
-     background-color: #831318;
- }
+.bobee-navbar-collapse {
+    background-color: #1E1819;
+}
 
- .bobee-navbar-collapse {
-     background-color: #1E1819;
- }
+.bobee-navbar-header {
+    background-color: #1E1819;
+}
 
- .bobee-navbar-header {
-     background-color: #1E1819;
- }
+.navbar-default .bobee-navbar-brand {
+    color: white;
+}
 
- .navbar-default .bobee-navbar-brand {
-     color: white;
- }
- /*
-@media (min-width: 768px){
-.bobee-navbar-nav {
-    float:none;
-    position:relative;
-    width:auto;
+.game-stat-div {
+    color: white;
+    font-size: 2em;
+}
+
+.bobee-chart-header {
+    background-color: #53302E;
+    margin-bottom: 10px;
+}
+
+.bobee-chart-header .chart-title span {
+    color: #F3D664;
+    font-size: 2em;
+}
+
+.bobee-chart-header span.search-icon {
+    font-size: 1em;
+    padding-right: 2px;
+}
+
+.bobee-chart-header button {
+    border: 0;
+    background-color: #000000;
+    padding: 4px 10px 6px 4px;
+    color: white;
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.bobee-chart-body {
+    background-color: #1D1919;
+    font-size: 1em;
+    text-align: center;
+}
+
+.bobee-chart-body .table-head {
+    color: #CB6A77;
+    font-size: 1em;
+}
+
+.bobee-chart-body div.table-body {
+    color: white;
+}
+
+.bobee-chart-body div.table-body:nth-child(2) {
+    color: #F3D664;
+}
+
+.pageBtn {
+    color: white;
+    border: 2px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.chart-title {
+    text-align: center;
+}
+
+.search-input {
+    background-color: #1E1818;
+    border: 0;
+    height: 34px;
+    width: 50%;
+    color: white;
+    /* left: -5px; */
+    position: relative;
+}
+
+
+/* vertical and horizontal center the bootstrap 3 modal   */
+
+.vertical-alignment-helper {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width: inherit;
+    height: inherit;
+    /* To center horizontally */
     margin: 0 auto;
 }
+
+div.game-rule{
+    background-color: black;
+    height:150px;
+}
+
+div.rule-text-div{
+    margin: 10px auto;
+    background-color: #1E1A16;
+    width: 80px;
+    height: 60px;
+    padding-top: 10px;
+}
+div.rule-text{
+    color: white;
+    font-size:1em;
+    text-align: center;
+}
+
+
+div.ten-chart{
+    background-color: black;
+    height:200px;
+}
+
+
+div.articles{
+    background-color:black;
+    padding-bottom:20px;
+}
+div.articles-head{
+    color:white;
+    background-color:#1E1A16;
+    text-align: center;
+    margin:20px 0;
+    padding:20px 0;
+    font-size:1.8em;
+}
+div.article-block{
+    margin-bottom:30px;
+}
+div.article-block .article-title{
+    color:white;
+    text-align: center;
+}
+h1.game-stage-text{
+    color:orange;
+}
+@media screen and (min-width: 768px) {
+    .banner-wrapper {
+        margin-top: 120px;
+    }
+    .bobee-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 8vh;
+        background-color: #53302E;
+    }
+    .bobee-title p {
+        letter-spacing: 5px;
+        font-size: 2.5em;
+    }
+    ul.bobee-navbar-nav {
+        float: none;
+        position: relative;
+        width: 500px;
+        margin: 0 auto;
+    }
+    ul#bobee-navbar-nav li a {
+        font-size: 1.5em;
+        color: #EAE7E7;
+    }
+    .navbar-nav>li.bobee-navbar-li {
+        width: 100px;
+        float: left;
+        font-size: 0.7em;
+    }
+
+    div.rule-text-div{
+        width: 100px;
+        height: 80px;
+        margin: 30px auto;
+    }
+
+    div.rule-text{
+        color: white;
+        font-size:1.5em;
+        text-align: center;
+    }
+
+    div.articles-head{
+    color:white;
+    background-color:#1E1A16;
+    text-align: center;
+    margin:20px 0;
+    padding:20px 0;
+    font-size:2.5em;
+    }
+
+    div.article-block{
+        margin-bottom:inherit;
+    }
 }

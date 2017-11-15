@@ -1,1 +1,1 @@
-module.exports = {"dailyPlayLimit":80,"winRate":1}
+module.exports = {"dailyPlayLimit":5}

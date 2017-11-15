@@ -1,0 +1,86 @@
+{% extends "./base.nunjucks" %} {% block body %}
+<div class="container banner-wrapper">
+
+    <div class="banner">
+
+        {#chart head #}
+        <div class="row">
+            <div class="col-sm-8 col-sm-push-2  bobee-chart-header">
+                <div class="col-sm-5 col-sm-push-1 chart-title">
+                    <span>連續聖杯排行榜</span>
+                </div>
+                <div class="col-sm-5 col-sm-push-1">
+                    <form action="/chart" class="horizontal-form" method="GET">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input type="text" name="nickname" class="search-input" value="{{nickname}}">
+                                <button for="search" class="search-button"><span class="glyphicon search-icon">&#xe003;</span>暱稱搜尋</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#chart body #}
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 bobee-chart-body">
+            <div class="row table-head">
+                <div class="col-xs-2 col-xs-push-1">排行</div>
+                <div class="col-xs-3">暱稱</div>
+                <div class="col-xs-3">連續杯數</div>
+                <div class="col-xs-3">達到時間</div>
+            </div>
+            {% if chart.length == 0 %}
+                <p style="color:white; margin-top:20px">查無資料</p>
+            {% endif %}
+            {% for data in chart %}
+            <div class="row table-body">
+                <div class="col-xs-2 col-xs-push-1">{{ loop.index}}</div>
+                <div class="col-xs-3"><a href="./gamelog/{{ data.facebookId }}">{{ data.nickname }}</a></div>
+                <div class="col-xs-3">{{ data.mostHolyCount }}</div>
+                <div class="col-xs-3">{{ data.formatReachedTime }}</div>
+            </div>
+            {% endfor %} {#
+            <div class="row table-body">
+                <div class="col-xs-2 col-xs-push-1">1</div>
+                <div class="col-xs-3">小奎</div>
+                <div class="col-xs-3">12</div>
+                <div class="col-xs-3">2017/10/11 19:22 00:00</div>
+            </div>
+            <div class="row table-body">
+                <div class="col-xs-2 col-xs-push-1">1</div>
+                <div class="col-xs-3">小奎</div>
+                <div class="col-xs-3">12</div>
+                <div class="col-xs-3">2017/10/11 19:22 00:00</div>
+            </div> #}
+
+        </div>
+    </div>
+
+    {#pagination bar#}
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2 bobee-chart-body">
+            <div class="row">
+                <div class="col-xs-4" style="text-align:center;">
+                    {% if pageData.hasPrevPage %}
+                    <a href="/chart?page={{ pageData.currentPage-1 }}">
+                        <div class="pageBtn">上一頁</div>
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="col-xs-4  col-xs-push-4" style="text-align:center;">
+                    {% if pageData.hasNextPage %}
+                    <a href="/chart?page={{ pageData.currentPage+1 }}">
+                        <div class="pageBtn">下一頁</div>
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %} {% block beforeBodyEnd %} {% endblock %}
