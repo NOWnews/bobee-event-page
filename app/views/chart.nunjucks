@@ -32,6 +32,9 @@
                 <div class="col-xs-3">連續杯數</div>
                 <div class="col-xs-3">達到時間</div>
             </div>
+            {% if chart.length == 0 %}
+                <p style="color:white; margin-top:20px">查無資料</p>
+            {% endif %}
             {% for data in chart %}
             <div class="row table-body">
                 <div class="col-xs-2 col-xs-push-1">{{ loop.index}}</div>
