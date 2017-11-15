@@ -82,11 +82,16 @@
     background-color:#53302E;
 }
 
-.bobee-chart-header span{
+.bobee-chart-header .chart-title span{
     color: #F3D664;
     font-size:2em;
 }
-.bobee-chart-header label{
+.bobee-chart-header span.search-icon{
+    font-size:1em;
+    padding-right:2px;
+}
+.bobee-chart-header button{
+    border:0;
     background-color: #000000;
     padding: 4px 10px 6px 4px;
     color: white;

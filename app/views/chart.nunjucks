@@ -12,11 +12,9 @@
                 <div class="col-sm-5 col-sm-push-1">
                     <form action="/chart" class="horizontal-form" method="GET">
                         <div class="row">
-                            {# <div class="col-xs-5 col-xs-push-1">
-                            </div> #}
                             <div class="col-xs-12">
-                                <label for="search" class="search-label">暱稱搜尋</label>
                                 <input type="text" name="nickname" class="search-input" value="{{nickname}}">
+                                <button for="search" class="search-button"><span class="glyphicon search-icon">&#xe003;</span>暱稱搜尋</button>
                             </div>
                         </div>
                     </form>
