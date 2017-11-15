@@ -34,7 +34,14 @@ router.post('/login', async(req, res) => {
     try {
         if (req.session.user && req.session.user.facebookId === req.body.authResponse.userID) {
             debug(`User ${req.session.user.facebookId} has logined!!`);
-            if (!req.session.user.name || !req.session.user.nickname || !req.session.user.phone || !req.session.user.email) {
+            var {
+                name,
+                nickname,
+                phone,
+                email
+            } = req.session.user;
+            if (!name || !nickname || !phone || !email) {
+                debug('req.session.user %j',req.session.user);
                 return res.json({
                     hasContactInfo: false
                 });
@@ -237,7 +244,8 @@ router.get('/chart', async function(req, res) {
             });
 
         }
-        debug('perPage...', perPage);
+        debug('perPage', perPage);
+
         var chart = await totalCursor
             .limit(perPage)
             .skip(skip);
@@ -314,11 +322,12 @@ router.post('/contactInfo', async function(req, res, next) {
             phone,
             email
         }, {
-            upsert: true
+            upsert: true,
+            new : true
         });
         req.session.user = user;
         return res.sendStatus(200);
-    }catch(err){
+    } catch (err) {
         console.error('post /contactInfo', err);
     }
 
