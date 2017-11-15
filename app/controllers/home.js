@@ -11,7 +11,8 @@ var express = require('express'),
     axios = require('axios'),
     Debug = require('debug'),
     _ = require('lodash'),
-    debug = Debug('bobee-event-page/app/controllers/home');
+    debug = Debug('bobee-event-page/app/controllers/home'),
+    Joi = require('joi');
 
 module.exports = function(app) {
     app.use('/', router);
@@ -32,8 +33,15 @@ router.get('/', function(req, res, next) {
 router.post('/login', async(req, res) => {
     try {
         if (req.session.user && req.session.user.facebookId === req.body.authResponse.userID) {
-            debug(`User ${req.session.user.facebookId} has logined!! %j`);
-            return res.sendStatus(200);
+            debug(`User ${req.session.user.facebookId} has logined!!`);
+            if (!req.session.user.name || !req.session.user.nickname || !req.session.user.phone || !req.session.user.email) {
+                return res.json({
+                    hasContactInfo: false
+                });
+            }
+            return res.json({
+                hasContactInfo: true
+            });
         }
         var {
             authResponse: {
@@ -65,12 +73,22 @@ router.post('/login', async(req, res) => {
 
         req.session.user = user;
         debug(`User ${req.session.user.facebookId} has logined!!`);
-        return res.sendStatus(200);
+
+        if (!user.name || !user.nickname || !user.phone || !user.email) {
+            return res.json({
+                hasContactInfo: false
+            });
+        }
+        return res.json({
+            hasContactInfo: true
+        });
 
     } catch (err) {
         console.error('post /login err', err);
         return res.sendStatus(500);
     }
+}, (req, res) => {
+
 });
 
 router.get('/play', async function(req, res) {
@@ -207,7 +225,7 @@ router.get('/chart', async function(req, res) {
             skip
         });
 
-        debug('nickname..',nickname);
+        debug('nickname..', nickname);
         var cursor = Chart.find({});
         var totalCursor = Chart.find({});
         if (nickname) {
@@ -219,7 +237,7 @@ router.get('/chart', async function(req, res) {
             });
 
         }
-        debug('perPage...',perPage);
+        debug('perPage...', perPage);
         var chart = await totalCursor
             .limit(perPage)
             .skip(skip);
@@ -254,6 +272,56 @@ router.get('/chart', async function(req, res) {
     } catch (err) {
         console.error('/get charts error', err);
     }
+});
+
+
+router.post('/contactInfo', async function(req, res, next) {
+    try {
+        // user input validation
+
+        const schema = Joi.object().keys({
+            name: Joi.string().max(30).required(),
+            nickname: Joi.string().max(30).required(),
+            phone: Joi.number().max(30).required(),
+            email: Joi.string().email().required()
+        });
+        debug('contactInfo data %j', req.body);
+        const result = Joi.validate(req.body, schema);
+        debug('result.error', result.error);
+        if (result.error) {
+            return res.status(400).send(result.error.details);
+        }
+        next();
+
+    } catch (err) {
+        console.error('post /contactInfo validation', err);
+    }
+
+}, async function(req, res) {
+    try {
+        var {
+            name,
+            nickname,
+            phone,
+            email
+        } = req.body;
+
+        var user = await User.findOneAndUpdate({
+            facebookId: req.session.user.facebookId,
+        }, {
+            name,
+            nickname,
+            phone,
+            email
+        }, {
+            upsert: true
+        });
+        req.session.user = user;
+        return res.sendStatus(200);
+    }catch(err){
+        console.error('post /contactInfo', err);
+    }
+
 });
 
 

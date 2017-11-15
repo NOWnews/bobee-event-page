@@ -32,7 +32,6 @@ var bobee = {
                 return alert('超過今日可玩的次數囉');
             }
             updateStat();
-            console.log('play res',res);
             var gifUrl = "";
             switch (res.result) {
                 case 'holy':
@@ -65,6 +64,9 @@ var bobee = {
     stopListen: function() {
         $('div.gif-wrapper').unbind('click');
         window.removeEventListener('shake', this.shakeEventDidOccur, false);
+    },
+    showFillForm: function(){
+        var div = $('div.game');
     }
 };
 

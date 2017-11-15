@@ -37,7 +37,7 @@
             {% for data in chart %}
             <div class="row table-body">
                 <div class="col-xs-2 col-xs-push-1">{{ loop.index}}</div>
-                <div class="col-xs-3">小奎</div>
+                <div class="col-xs-3">{{ data.nickname }}</div>
                 <div class="col-xs-3">{{ data.mostHolyCount }}</div>
                 <div class="col-xs-3">{{ data.formatReachedTime }}</div>
             </div>

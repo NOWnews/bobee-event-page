@@ -1,97 +1,133 @@
-{% extends "./base.nunjucks" %}
-
-{% block body %}
+{% extends "./base.nunjucks" %} {% block body %}
 
 
 
-    <div class="container banner-wrapper">
+<div class="container banner-wrapper">
 
-        <div class="banner">
-            <div class="row">
-                <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-                    <img class="img-responsive" src="https://placehold.it/600x200" />
-                    <!--Mobile-->
-                </div>
-                <div class="hidden-xs col-lg-12">
-                    <img class="img-responsive" src="https://placehold.it/1170x200" />
-                    <!--Large-->
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="container wrapper">
-        <div class="game-stat-div">
-            <div class="row">
-                <div class="col-sm-4">
-                    歷史最高連續擲杯：<span class="stat-history-top-number"></span>
-                </div>
-                <div class="col-sm-4">
-                    今日剩下幾次機會：<span class="stat-oppotunity-number"></span>
-                </div>
-                <div class="col-sm-4">
-                    目前連續聖杯數：<span class="stat-current-combo-number"></span>
-                </div>
-            </div>
-        </div>
-        <div class="game">
-            <div class="row">
-                <div class="col-xs-12">
-                    <span style="color:white; font-size:2em;" id="status"></span>
-                    <div class="gif-wrapper">
-                        {% if isMobileOrTablet %}
-                        <img class="img-responsive img-game-init" src="./img/game-init-mobile.png" alt=""> {% else %}
-                        <img class="img-responsive img-game-init" src="./img/game-init.png" alt=""> {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
+    <div class="banner">
         <div class="row">
-            <div class="col-sm-12">
-                <div class="fb-login-row">
-                    <div class="fb-login-block">
-                        <div onlogin="statusChangeCallback" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
-                    </div>
-                </div>
-                <div class="fb-status" id="status"></div>
+            <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
+                <img class="img-responsive" src="https://placehold.it/600x200" />
+                <!--Mobile-->
+            </div>
+            <div class="hidden-xs col-lg-12">
+                <img class="img-responsive" src="https://placehold.it/1170x200" />
+                <!--Large-->
             </div>
         </div>
     </div>
 
+</div>
 
-{% endblock %}
+<div class="container wrapper">
+    <div class="game-stat-div">
+        <div class="row">
+            <div class="col-sm-4">
+                歷史最高連續擲杯：<span class="stat-history-top-number"></span>
+            </div>
+            <div class="col-sm-4">
+                今日剩下幾次機會：<span class="stat-oppotunity-number"></span>
+            </div>
+            <div class="col-sm-4">
+                目前連續聖杯數：<span class="stat-current-combo-number"></span>
+            </div>
+        </div>
+    </div>
+    <div class="game">
+        <div class="row">
+            <div class="col-xs-12">
+                <span style="color:white; font-size:2em;" id="status"></span>
+                <div class="gif-wrapper">
+                    {% if isMobileOrTablet %}
+                    <img class="img-responsive img-game-init" src="./img/game-init-mobile.png" alt=""> {% else %}
+                    <img class="img-responsive img-game-init" src="./img/game-init.png" alt=""> {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="contactInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="vertical-alignment-helper">
+        <div class="modal-dialog vertical-align-center">
+            <div class="modal-content">
+                <form id="contactInfoForm" class="" action="/contactInfo" method="POST">
+                    <div class="modal-header">
+                        {# <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> #}
+                        <h4 class="modal-title">中獎聯絡資料</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="name" class="control-label">姓名</label>
+                            <input type="text" name="name" class="form-control" maxlength="30" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="nickname" class="control-label">暱稱<small>(查詢排行榜使用)</small></label>
+                            <input type="text" name="nickname" class="form-control" maxlength="30" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone" class="control-label">手機號碼<small>(請輸入數字)</small></label>
+                            <input type="number" name="phone" class="form-control" maxlength="30" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="control-label">Email</label>
+                            <input type="email" name="email" class="form-control" maxlength="100" required>
+                        </div>
 
 
-{% block beforeBodyEnd %}
+                    </div>
+                    <div class="modal-footer">
+                        {# <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> #}
+                        <button type="submit" class="btn btn-primary">送出</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="fb-login-row">
+                <div class="fb-login-block">
+                    <div onlogin="statusChangeCallback" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                </div>
+            </div>
+            <div class="fb-status" id="status"></div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %} {% block beforeBodyEnd %}
 
 <script src="js/shake.js"></script>
-    <script src="js/animate.js"></script>
-    <script src="js/bobee-game.js"></script>
-    <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId: '{{facebookAppId}}',
-                cookie: true, // enable cookies to allow the server to access
-                // the session
-                xfbml: true, // parse social plugins on this page
-                version: 'v2.10' // use graph api version 2.8
-            });
-            statusChangeCallback();
-        };
-        // Load the SDK asynchronously
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/zh_TW/sdk.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <audio id="audio" style="display:none;" src="./audio/shaking-audio.ogg"></audio>
-
-    {% endblock %}
+<script src="js/animate.js"></script>
+<script src="js/bobee-game.js"></script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId: '{{facebookAppId}}',
+            cookie: true, // enable cookies to allow the server to access
+            // the session
+            xfbml: true, // parse social plugins on this page
+            version: 'v2.10' // use graph api version 2.8
+        });
+        statusChangeCallback();
+    };
+    // Load the SDK asynchronously
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/zh_TW/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<audio id="audio" style="display:none;" src="./audio/shaking-audio.ogg"></audio> {% endblock %}
