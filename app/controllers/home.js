@@ -249,7 +249,11 @@ router.get('/chart', async function(req, res) {
 
         var chart = await totalCursor
             .limit(perPage)
-            .skip(skip);
+            .skip(skip)
+            .sort({
+                mostHolyCount: -1,
+                reachedTime: -1
+            });
         var chartCount = await totalCursor.count();
 
         var totalPage = Math.ceil(chartCount / perPage);
