@@ -201,8 +201,13 @@ div.article-block .article-title {
     font-size: 1.2em;
 }
 
-h1.game-stage-text {
-    color: orange;
+
+div.game-desc-div {
+    background-color: white;
+    padding-bottom:20px;
+}
+h1.game-desc-title {
+    color: #721B17;
     margin: 10px 10px 15px 20px;
     font-size: 1.2em;
 }
@@ -234,6 +239,16 @@ div.chart-block span.holyCount {
     font-size: 1.2em;
 }
 
+.game-desc-div{
+    background-color:white;
+}
+
+.game-desc-div ul{
+     list-style-type:decimal;
+     margin-left: 40px;
+}
+
+
 
 /* div.chart-block span.reachedTime {
     color: white;
@@ -256,6 +271,20 @@ div.chart-link-div a {
 
 div.search-div{
     text-align: center;
+}
+
+p.game-desc-content{
+    margin-left: 30px;
+}
+div.game-desc-award-img-div{
+    margin: 0 20px 20px 20px;
+    padding:20px 0;
+}
+img.game-desc-award-img{
+    width:100%;
+}
+h1.game-desc-award-title{
+    font-size: 1.5em;
 }
 
 @media screen and (min-width: 768px) {
@@ -342,8 +371,7 @@ div.search-div{
     div.chart-block-data-div {
         margin-top: 8px;
     }
-    h1.game-stage-text {
-        color: orange;
+    h1.game-desc-title {
         margin: 15px 0 20px 40px;
         font-size: 2em;
     }
