@@ -300,7 +300,10 @@ div.chart-link-div a {
         margin-bottom: inherit;
     }
     div.article-img-block{
-        min-height: 150px;
+        height: 200px;
+    }
+    div.article-img-block img{
+        height:100%;
     }
     div.chart-block {
         margin-left: 0px;
