@@ -51,9 +51,49 @@
                 </div>
             </div>
 
+            <div class="col-sm-10 col-sm-push-1">
+                <div class="row">
+
+                    <div class="col-sm-5">
+                        <div class="chart-block">
+                            {% for i in range(0,5) %}
+                                {% if firstTenInChart[i] %}
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <span class="no">No.{{ i+1 }} </span>
+                                        <span class="nickname">{{firstTenInChart[i].nickname}}</span>
+                                        <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="col-sm-5">
+                        <div class="chart-block">
+                            {% for i in range(5,10) %}
+                                {% if firstTenInChart[i] %}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <span class="no">No.{{ i+1 }} </span>
+                                            <span class="nickname">{{firstTenInChart[i].nickname}}</span>
+                                            <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            {#
             <div class="col-sm-8 col-sm-push-1">
                 <h1 style="color:white; text-align:center; font-size:1em;">前10名排行榜（待完成）</h1>
-            </div>
+            </div> #}
         </div>
 
         <div class="row">
@@ -126,50 +166,50 @@
                 <div class="row">
                     <div class="col-sm-4 article-block">
                         <a href="https://bobee.nownews.com/20171115-15103/">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/img_0194.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="article-title">
-                                    《保庇手冊》到烘爐地求錢母不藏私教學
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/img_0194.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="article-title">
+                                        《保庇手冊》到烘爐地求錢母不藏私教學
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
                     <div class="col-sm-4 article-block">
                         <a href="https://bobee.nownews.com/20171115-15088/">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1115bajian.jpg?w=960&ssl=1" alt="" class="img-responsive">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="article-title">
-                                    艋舺青山王祭－全台唯一的「青山宮八將團」
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1115bajian.jpg?w=960&ssl=1" alt="" class="img-responsive">
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="article-title">
+                                        艋舺青山王祭－全台唯一的「青山宮八將團」
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
                     <div class="col-sm-4 article-block">
                         <a href="https://bobee.nownews.com/20171115-15094/">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1114-e9-9d-92-e5-b1-b1-e5-ae-ae-e6-8e-a1-e8-a8-aa_171115_0069.jpg?w=1478&ssl=1" alt="" class="img-responsive">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="article-title">
-                                    艋舺青山王祭－行前愛注意
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1114-e9-9d-92-e5-b1-b1-e5-ae-ae-e6-8e-a1-e8-a8-aa_171115_0069.jpg?w=1478&ssl=1" alt="" class="img-responsive">
                                 </div>
                             </div>
-                        </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="article-title">
+                                        艋舺青山王祭－行前愛注意
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                     </div>
                 </div>
@@ -192,7 +232,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                 <h1 class="game-stage-text">第一階段： 11/20(一)-12/4(一)，共15天</h1>
+                <h1 class="game-stage-text">第一階段： 11/20(一)-12/4(一)，共15天</h1>
                 <pre class="game-desc">1：登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料
 2：每日五次機會讓你試手氣設有即時排行榜隨時關注最新戰況
 3：天天回來試手氣，還能天天參加抽獎
@@ -201,7 +241,7 @@
             </div>
 
             <div class="col-sm-12">
-                <h1 class="game-stage-text">第二階段：12/13 星期三  早上11點開始</h1>
+                <h1 class="game-stage-text">第二階段：12/13 星期三 早上11點開始</h1>
                 <pre class="game-desc">12/23前十名擲筊好手齊聚NOWnews總公司一拚高下
 1：現場請十位參賽者提供身分文件核對身分
 2：現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)

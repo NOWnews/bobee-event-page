@@ -19,14 +19,23 @@ module.exports = function(app) {
 };
 
 
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
     md = new MobileDetect(req.headers['user-agent']);
     var md = new MobileDetect(req.headers['user-agent']);
     var isMobileOrTablet = md.mobile() || md.tablet() || false;
+
+    var firstTenInChart = await Chart.find({})
+            .limit(10)
+            .sort({
+                mostHolyCount: -1,
+                reachedTime: -1
+            });
+    debug('firstTenInChart...',firstTenInChart);
     res.render('index', {
         isMobileOrTablet: isMobileOrTablet,
         facebookAppId: config.facebook.appId,
-        NODE_ENV: process.env.NODE_ENV || 'development'
+        NODE_ENV: process.env.NODE_ENV || 'development',
+        firstTenInChart
     });
 });
 
@@ -247,7 +256,7 @@ router.get('/chart', async function(req, res) {
         }
         debug('perPage', perPage);
 
-        var chart = await totalCursor
+        var chart = await cursor
             .limit(perPage)
             .skip(skip)
             .sort({

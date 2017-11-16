@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-tw">
 
 <head>
     {% if NODE_ENV == 'development' %}
