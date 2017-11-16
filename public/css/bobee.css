@@ -89,11 +89,13 @@ body {
 
 .bobee-chart-body .table-head {
     color: #CB6A77;
-    font-size: 1em;
+    font-size: 1.5em;
+    margin: 20px 0;
 }
 
 .bobee-chart-body div.table-body {
     color: white;
+    margin-top: 5px;
 }
 
 .bobee-chart-body div.table-body:nth-child(2) {
