@@ -191,6 +191,8 @@ div.article-block {
 div.article-block .article-title {
     color: white;
     text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
 }
 
 h1.game-stage-text {
@@ -298,6 +300,9 @@ div.chart-link-div a {
     div.article-block {
         margin-bottom: inherit;
     }
+    div.article-img-block{
+        min-height: 150px;
+    }
     div.chart-block {
         margin-left: 0px;
         margin-top: 30px;
@@ -326,7 +331,7 @@ div.chart-link-div a {
     }
     h1.game-stage-text {
         color: orange;
-        margin: 10px 0 15px 20px;
+        margin: 15px 0 20px 40px;
         font-size: 2em;
     }
 }
