@@ -4,7 +4,8 @@ var mongoose = require('mongoose'),
 var UserSchema = new Schema({
     facebookId: {
         type: Schema.Types.String,
-        default: null
+        default: null,
+        unique: true
     },
     name: {
         type: Schema.Types.String,

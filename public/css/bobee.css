@@ -1,6 +1,13 @@
-.wrapper{
+.banner {
+  position: relative;
+  margin: 20px auto 0;
+  overflow:hidden;
+}
+
+.wrapper {
     margin-bottom: 20px;
 }
+
 .banner-wrapper {
     margin-top: 40px;
     margin-bottom: 20px;
@@ -88,11 +95,13 @@ body {
 
 .bobee-chart-body .table-head {
     color: #CB6A77;
-    font-size: 1em;
+    font-size: 1.5em;
+    margin: 20px 0;
 }
 
 .bobee-chart-body div.table-body {
     color: white;
+    margin-top: 5px;
 }
 
 .bobee-chart-body div.table-body:nth-child(2) {
@@ -143,53 +152,112 @@ body {
     margin: 0 auto;
 }
 
-div.game-rule{
+div.game-rule {
     background-color: black;
-    height:150px;
+    height: 150px;
 }
 
-div.rule-text-div{
+div.rule-text-div {
     margin: 10px auto;
     background-color: #1E1A16;
     width: 80px;
     height: 60px;
     padding-top: 10px;
 }
-div.rule-text{
+
+div.rule-text {
     color: white;
-    font-size:1em;
+    font-size: 1em;
     text-align: center;
 }
 
-
-div.ten-chart{
+div.ten-chart {
     background-color: black;
-    height:200px;
+    min-height: 200px;
+}
+
+div.articles {
+    background-color: black;
+    padding-bottom: 20px;
+}
+
+div.articles-head {
+    color: white;
+    background-color: #1E1A16;
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px 0;
+    font-size: 1.8em;
+}
+
+div.article-block {
+    margin-bottom: 30px;
+}
+
+div.article-block .article-title {
+    color: white;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+h1.game-stage-text {
+    color: orange;
+    margin: 10px 10px 15px 20px;
+    font-size: 1.2em;
+}
+
+pre.game-desc-pre {
+    margin: 0 10px;
+}
+
+div.chart-block {
+    text-align: center;
+    margin-left: 15px;
+}
+
+div.chart-block div.no {
+    text-align: left;
+    color: #D2B961;
+    font-size: 1.8em;
+}
+
+div.chart-block span.nickname {
+    color: #9F6A6F;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+div.chart-block span.holyCount {
+    color: #D2B961;
+    margin-right: 10px;
+    font-size: 1.2em;
 }
 
 
-div.articles{
-    background-color:black;
-    padding-bottom:20px;
-}
-div.articles-head{
-    color:white;
-    background-color:#1E1A16;
+/* div.chart-block span.reachedTime {
+    color: white;
+    font-size: 0.6em;
+} */
+
+div.chart-link-div {
+    width: 200px;
+    margin: 20px auto;
+    background-color: orange;
     text-align: center;
-    margin:20px 0;
-    padding:20px 0;
-    font-size:1.8em;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 20px;
 }
-div.article-block{
-    margin-bottom:30px;
+
+div.chart-link-div a {
+    color: white;
 }
-div.article-block .article-title{
-    color:white;
+
+div.search-div{
     text-align: center;
 }
-h1.game-stage-text{
-    color:orange;
-}
+
 @media screen and (min-width: 768px) {
     .banner-wrapper {
         margin-top: 120px;
@@ -220,29 +288,63 @@ h1.game-stage-text{
         float: left;
         font-size: 0.7em;
     }
-
-    div.rule-text-div{
+    div.rule-text-div {
         width: 100px;
         height: 80px;
-        margin: 30px auto;
+        margin: 50px auto 0 auto;
     }
-
-    div.rule-text{
+    div.rule-text {
         color: white;
-        font-size:1.5em;
+        font-size: 1.5em;
         text-align: center;
     }
-
-    div.articles-head{
-    color:white;
-    background-color:#1E1A16;
-    text-align: center;
-    margin:20px 0;
-    padding:20px 0;
-    font-size:2.5em;
+    div.articles-head {
+        color: white;
+        background-color: #1E1A16;
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px 0;
+        font-size: 2.5em;
     }
-
-    div.article-block{
-        margin-bottom:inherit;
+    div.article-block {
+        margin-bottom: inherit;
+    }
+    div.article-img-block{
+        height: 200px;
+    }
+    div.article-img-block img{
+        height:100%;
+    }
+    div.chart-block {
+        margin-left: 0px;
+        margin-top: 30px;
+    }
+    div.chart-block div.no {
+        color: #D2B961;
+        font-size: 1.3em;
+        margin-right: 5px;
+        float: left;
+    }
+    div.chart-block span.nickname {
+        color: #9F6A6F;
+        font-size: 1.1em;
+        margin-right: 5px;
+    }
+    div.chart-block span.holyCount {
+        color: #D2B961;
+        font-size: 1.1em;
+        margin-right: 5px;
+    }
+    /* div.chart-block span.reachedTime {
+        color: white;
+        font-size: 0.6em;
+    } */
+    div.chart-block-data-div {
+        margin-top: 8px;
+    }
+    h1.game-stage-text {
+        color: orange;
+        margin: 15px 0 20px 40px;
+        font-size: 2em;
     }
 }
