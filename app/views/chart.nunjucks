@@ -37,7 +37,7 @@
             {% endif %}
             {% for data in chart %}
             <div class="row table-body">
-                <div class="col-xs-2 col-xs-push-1">{{ loop.index}}</div>
+                <div class="col-xs-2 col-xs-push-1">{{ (pageData.currentPage-1)*10 + loop.index }}</div>
                 <div class="col-xs-3"><a href="./gamelog/{{ data.facebookId }}">{{ data.nickname }}</a></div>
                 <div class="col-xs-3">{{ data.mostHolyCount }}</div>
                 <div class="col-xs-3">{{ data.formatReachedTime }}</div>

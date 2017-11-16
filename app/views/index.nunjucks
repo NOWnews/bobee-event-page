@@ -53,13 +53,12 @@
 
             <div class="col-sm-10 col-sm-push-1">
                 <div class="row">
-
                     <div class="col-sm-5">
                         <div class="chart-block">
                             {% for i in range(0,5) %}
                                 {% if firstTenInChart[i] %}
                                 <div class="row">
-                                    <div class="col-sm-12">
+                                    <div class="col-sm-12 chart-block-data-div">
                                         <span class="no">No.{{ i+1 }} </span>
                                         <span class="nickname">{{firstTenInChart[i].nickname}}</span>
                                         <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
@@ -75,7 +74,7 @@
                             {% for i in range(5,10) %}
                                 {% if firstTenInChart[i] %}
                                     <div class="row">
-                                        <div class="col-sm-12">
+                                        <div class="col-sm-12 chart-block-data-div">
                                             <span class="no">No.{{ i+1 }} </span>
                                             <span class="nickname">{{firstTenInChart[i].nickname}}</span>
                                             <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
@@ -99,7 +98,7 @@
         <div class="row">
             <div class="col-sm-12">
 
-                <div style="width:100px;margin:20px auto; background-color:orange; text-align:center;">
+                <div class="chart-link-div">
                     <a href="./chart">查看總排行榜</a>
                 </div>
 
@@ -221,7 +220,7 @@
 </div>
 
 <div class="container wrapper">
-    <div class="articles">
+    <div class="articles" id="activity">
         <div class="articles-head">
             <div class="row">
                 <div class="col-sm-12">
@@ -233,7 +232,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <h1 class="game-stage-text">第一階段： 11/20(一)-12/4(一)，共15天</h1>
-                <pre class="game-desc">1：登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料
+                <pre class="game-desc-pre">1：登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料
 2：每日五次機會讓你試手氣設有即時排行榜隨時關注最新戰況
 3：天天回來試手氣，還能天天參加抽獎
 4：排行榜前十名者12/XX來NOWnews挑戰騎回gogoro
@@ -242,7 +241,7 @@
 
             <div class="col-sm-12">
                 <h1 class="game-stage-text">第二階段：12/13 星期三 早上11點開始</h1>
-                <pre class="game-desc">12/23前十名擲筊好手齊聚NOWnews總公司一拚高下
+                <pre class="game-desc-pre">12/23前十名擲筊好手齊聚NOWnews總公司一拚高下
 1：現場請十位參賽者提供身分文件核對身分
 2：現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)
 十名為人人有獎

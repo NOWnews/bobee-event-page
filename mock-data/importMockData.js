@@ -60,8 +60,12 @@
           }
       }
 
-  })();
 
+      process.exit();
+
+
+
+  })();
 
   // (async function(){
   //     await User.find({});
