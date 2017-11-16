@@ -210,11 +210,10 @@ div.chart-block {
     margin-left: 15px;
 }
 
-div.chart-block span.no {
+div.chart-block div.no {
     text-align: left;
     color: #D2B961;
     font-size: 1.8em;
-    margin-right: 10px;
 }
 
 div.chart-block span.nickname {
@@ -307,10 +306,11 @@ div.chart-link-div a {
         margin-left: 0px;
         margin-top: 30px;
     }
-    div.chart-block span.no {
+    div.chart-block div.no {
         color: #D2B961;
         font-size: 1.3em;
         margin-right: 5px;
+        float: left;
     }
     div.chart-block span.nickname {
         color: #9F6A6F;

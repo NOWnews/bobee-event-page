@@ -64,7 +64,7 @@
                 <ul class="nav navbar-nav bobee-navbar-nav" id="bobee-navbar-nav">
                     <li class="bobee-navbar-li"><a href="/#activity">活動說明</a></li>
                     <li class="bobee-navbar-li" ><a href="/#a">活動獎品＆名單</a></li>
-                    <li class="bobee-navbar-li"><a href="/#other">其他說明</a></li>
+                    <li class="bobee-navbar-li"><a href="/#other-desc">其他說明</a></li>
                     <li class="bobee-navbar-li"><a target="_blank" href="https://bobee.nownews.com/">保庇NOW</a></li>
                     <li class="bobee-navbar-li"><a target="_blank" href="https://www.nownews.com/">NOWnews</a></li>
                     {#
