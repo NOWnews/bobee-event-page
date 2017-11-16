@@ -1,10 +1,11 @@
-.bobee-container-fluid{
+.bobee-container-fluid {
     padding: 0;
 }
+
 .banner {
-  position: relative;
-  margin: 20px auto 0;
-  overflow:hidden;
+    position: relative;
+    margin: 20px auto 0;
+    overflow: hidden;
 }
 
 .wrapper {
@@ -26,13 +27,21 @@
     font-size: 1.4em;
 }
 
+
+/*
 .fb-login-row {
     text-align: center;
     margin: 0 0 20px 0;
+} */
+
+.game-login-wrapper {
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .fb-login-block {
-    display: inline-block;
+    margin: 20px 0 10px 0;
+    text-align: center;
 }
 
 .fb-status {
@@ -204,11 +213,11 @@ div.article-block .article-title {
     font-size: 1.2em;
 }
 
-
 div.game-desc-div {
     background-color: white;
-    padding-bottom:20px;
+    padding-bottom: 20px;
 }
+
 h1.game-desc-title {
     color: #721B17;
     margin: 10px 10px 15px 20px;
@@ -242,15 +251,14 @@ div.chart-block span.holyCount {
     font-size: 1.2em;
 }
 
-.game-desc-div{
-    background-color:white;
+.game-desc-div {
+    background-color: white;
 }
 
-.game-desc-div ul{
-     list-style-type:decimal;
-     margin-left: 40px;
+.game-desc-div ul {
+    list-style-type: none;
+    margin-left: 40px;
 }
-
 
 
 /* div.chart-block span.reachedTime {
@@ -272,27 +280,35 @@ div.chart-link-div a {
     color: white;
 }
 
-div.search-div{
+div.search-div {
     text-align: center;
 }
 
-p.game-desc-content{
-    margin-left: 30px;
+p.game-desc-content {
+    margin-left: 40px;
 }
-div.game-desc-award-img-div{
+
+div.game-desc-award-img-div {
     margin: 0 20px 20px 20px;
-    padding:20px 0;
+    padding: 20px 0;
 }
-img.game-desc-award-img{
-    width:100%;
+
+img.game-desc-award-img {
+    width: 100%;
 }
-h1.game-desc-award-title{
+
+h1.game-desc-award-title {
     font-size: 1.5em;
+}
+
+span#login-status {
+    color: white;
+    font-size: 1.2em;
 }
 
 @media screen and (min-width: 768px) {
     .banner-wrapper {
-        margin-top: 120px;
+        margin-top: 40px;
     }
     .bobee-title {
         display: flex;
@@ -346,11 +362,11 @@ h1.game-desc-award-title{
     div.article-block {
         margin-bottom: inherit;
     }
-    div.article-img-block{
+    div.article-img-block {
         height: 200px;
     }
-    div.article-img-block img{
-        height:100%;
+    div.article-img-block img {
+        height: 100%;
     }
     div.chart-block {
         margin-left: 0px;
@@ -382,5 +398,11 @@ h1.game-desc-award-title{
     h1.game-desc-title {
         margin: 15px 0 20px 40px;
         font-size: 2em;
+    }
+    span#login-status {
+        font-size: 1.5em;
+    }
+    .fb-login-block {
+        margin: 100px 0 10px 0;
     }
 }

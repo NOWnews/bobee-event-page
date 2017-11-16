@@ -7,12 +7,12 @@
     <div class="banner">
         <div class="row">
             <div class="col-xs-12 hidden-sm hidden-md hidden-lg">
-                <img class="img-responsive" src="/img/bobee-banner.png" />
+                <img class="img-responsive" alt="保庇NOW 擲杯大賽 擲杯搏運氣" src="/img/bobee-banner-mobile.jpg" />
                 <!--Mobile-->
             </div>
             <div class="hidden-xs col-lg-12">
-                <img class="img-responsive" src="/img/bobee-banner.png" />
                 <!--Large-->
+                <img class="img-responsive" alt="保庇NOW 擲杯大賽 擲杯搏運氣" src="/img/bobee-banner-pc.jpg" />
             </div>
         </div>
     </div>
@@ -20,6 +20,7 @@
 </div>
 
 <div class="container wrapper">
+    {#
     <div class="game-rule">
         <div class="row">
             <div class="col-sm-2 col-sm-push-1">
@@ -36,7 +37,7 @@
             </div>
 
         </div>
-    </div>
+    </div> #}
 </div>
 
 <div class="container wrapper">
@@ -103,7 +104,42 @@
     </div>
 </div>
 
+<div class="container game-login-wrapper">
+    <div class="row">
+        <div class="game-login-div">
+            <div class="col-xs-6 col-xs-push-1">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span id="login-status"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="fb-login-block">
+                            <div onlogin="statusChangeCallback" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <img src="/img/gamepic.png" alt="" class="img-responsive">
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container wrapper">
+    <div class="game">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="gif-wrapper">
+                    {% if isMobileOrTablet %}
+                    <img class="img-responsive img-game-init" src="/img/game-init-mobile.png" alt=""> {% else %}
+                    <img class="img-responsive img-game-init" src="/img/game-init.png" alt=""> {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="game-stat-div">
         <div class="row">
             <div class="col-sm-4">
@@ -117,20 +153,9 @@
             </div>
         </div>
     </div>
-    <div class="game">
-        <div class="row">
-            <div class="col-xs-12">
-                <span style="color:white; font-size:2em;" id="status"></span>
-                <div class="gif-wrapper">
-                    {% if isMobileOrTablet %}
-                    <img class="img-responsive img-game-init" src="/img/game-init-mobile.png" alt=""> {% else %}
-                    <img class="img-responsive img-game-init" src="/img/game-init.png" alt=""> {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
+</div>
+{#
 <div class="container wrapper">
     <div class="row">
         <div class="col-sm-12">
@@ -139,10 +164,10 @@
                     <div onlogin="statusChangeCallback" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
                 </div>
             </div>
-            <div class="fb-status" id="status"></div>
+             <div class="fb-status" id="status"></div>
         </div>
     </div>
-</div>
+</div> #}
 
 
 <div class="container wrapper">
@@ -216,11 +241,11 @@
 </div>
 
 <div class="container wrapper">
-    <div class="game-desc-div" id="game-desc">
+    <div class="game-desc-div" id="activity">
         <div class="articles-head">
             <div class="row">
                 <div class="col-sm-12">
-                    遊戲規則
+                    活動說明
                 </div>
             </div>
         </div>
@@ -229,10 +254,10 @@
                 <div class="col-sm-12">
                     <h1 class="game-desc-title">第一階段： 11/20(一)-12/4(一)，共 15 天</h1>
                     <ul>
-                        <li>登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料</li>
-                        <li>每日五次機會讓你試手氣設有即時排行榜隨時關注最新戰況</li>
-                        <li>天天回來試手氣，還能天天參加抽獎</li>
-                        <li>排行榜前十名者12/XX來NOWnews挑戰騎回gogoro</li>
+                        <li>1. 登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料</li>
+                        <li>2. 每日五次機會讓你試手氣設有即時排行榜隨時關注最新戰況</li>
+                        <li>3. 天天回來試手氣，還能天天參加抽獎</li>
+                        <li>4. 排行榜前十名者12/XX來NOWnews挑戰騎回gogoro</li>
                     </ul>
                 </div>
             </div>
@@ -244,46 +269,18 @@
                         12/23前十名擲筊好手齊聚NOWnews總公司一拚高下
                     </p>
                     <ul>
-                        <li>現場請十位參賽者提供身分文件核對身分</li>
-                        <li>現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
+                        <li>1. 現場請十位參賽者提供身分文件核對身分</li>
+                        <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
                     </ul>
                 </div>
             </div>
 
 
             <div class="row game-desc-award-img-div">
-                 <div class="col-sm-3">
+                <div class="col-sm-3">
                     <div class="row">
                         <div class="col-sm-12">
-                            <img src="https://placehold.it/200x200" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">頭獎</h1>
-                            <p class="game-desc-award-desc">GOGORO</p>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="https://placehold.it/200x200" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">頭獎</h1>
-                            <p class="game-desc-award-desc">GOGORO</p>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="https://placehold.it/200x200" alt="" class="img-responsive game-desc-award-img">
+                            <img src="/img/gift1.jpg" alt="" class="img-responsive game-desc-award-img">
                         </div>
                     </div>
                     <div class="row">
@@ -297,24 +294,52 @@
                 <div class="col-sm-3">
                     <div class="row">
                         <div class="col-sm-12">
-                            <img src="https://placehold.it/200x200" alt="" class="img-responsive game-desc-award-img">
+                            <img src="/img/gift2.jpg" alt="" class="img-responsive game-desc-award-img">
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">頭獎</h1>
-                            <p class="game-desc-award-desc">GOGORO</p>
+                            <h1 class="game-desc-award-title">貳獎</h1>
+                            <p class="game-desc-award-desc">米家掃地機器人</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img src="/img/gift3.jpg" alt="" class="img-responsive game-desc-award-img">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="game-desc-award-title">三獎</h1>
+                            <p class="game-desc-award-desc">雀巢膠囊咖啡機</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <img src="/img/gift4.jpg" alt="" class="img-responsive game-desc-award-img">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h1 class="game-desc-award-title">參加獎</h1>
+                            <p class="game-desc-award-desc">？？？？？？</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" id="other-desc">
                 <div class="col-sm-12">
                     <h1 class="game-desc-title">其他說明</h1>
                     <ul>
-                        <li>1.依中華民國稅法規定，機會中獎之獎項價值超過新臺幣(以下同)20,000 元以上，需預先扣繳 10% 稅款（外籍人士需扣繳 20%），中獎贈品或獎金價值1,000以下者，得免計入申報所得稅，超過者，本公司會將填發扣（免）繳憑單予中獎人，中獎人於年度報稅時必須計入個人所得合併申報。若中獎人未能依法繳納扣繳稅款，即視為喪失得獎資格。</li>
-                        <li>現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
+                        <li>1. 依中華民國稅法規定，機會中獎之獎項價值超過新臺幣(以下同)20,000 元以上，需預先扣繳 10% 稅款（外籍人士需扣繳 20%），中獎贈品或獎金價值1,000以下者，得免計入申報所得稅，超過者，本公司會將填發扣（免）繳憑單予中獎人，中獎人於年度報稅時必須計入個人所得合併申報。若中獎人未能依法繳納扣繳稅款，即視為喪失得獎資格。</li>
+                        <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
                     </ul>
                 </div>
             </div>

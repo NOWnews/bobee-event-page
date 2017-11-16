@@ -13,7 +13,8 @@ var UserSchema = new Schema({
     },
     nickname: {
         type: Schema.Types.String,
-        default: null
+        default: null,
+        unique: true
     },
     phone: {
         type: Schema.Types.String,

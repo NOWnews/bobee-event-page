@@ -339,6 +339,7 @@ router.post('/contactInfo', async function(req, res, next) {
         return res.sendStatus(200);
     } catch (err) {
         console.error('post /contactInfo', err);
+        return res.status(400).send({ errCode: err.code });
     }
 
 });
