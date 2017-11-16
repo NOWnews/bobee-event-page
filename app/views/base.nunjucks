@@ -47,10 +47,10 @@
 <body>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-bobee navbar-fixed-top">
-        <div class="container">
-            <div class="bobee-title">
+        <div class="container-fluid bobee-container-fluid">
+            {# <div class="bobee-title">
                 <a href="/"><p>擲杯博運氣 - 保庇NOW擲杯大賽 </p></a>
-            </div>
+            </div> #}
             <div class="navbar-header bobee-navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">導覽列</span>
