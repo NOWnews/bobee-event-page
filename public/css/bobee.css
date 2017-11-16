@@ -1,3 +1,9 @@
+.banner {
+  position: relative;
+  margin: 20px auto 0;
+  overflow:hidden;
+}
+
 .wrapper {
     margin-bottom: 20px;
 }
@@ -246,6 +252,10 @@ div.chart-link-div {
 
 div.chart-link-div a {
     color: white;
+}
+
+div.search-div{
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {

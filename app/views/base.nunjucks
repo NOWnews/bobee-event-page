@@ -37,7 +37,7 @@
 
     {#
     <link rel="stylesheet" href="css/slot-machine-style.css"> #}
-    <link href="/css/main.css" rel="stylesheet">
+     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/bobee.css" rel="stylesheet">
 
