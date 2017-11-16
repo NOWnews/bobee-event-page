@@ -296,8 +296,8 @@ router.post('/contactInfo', async function(req, res, next) {
         // user input validation
 
         const schema = Joi.object().keys({
-            name: Joi.string().max(30).required(),
-            nickname: Joi.string().max(30).required(),
+            name: Joi.string().max(8).required(),
+            nickname: Joi.string().max(8).required(),
             phone: Joi.string().max(30).required(),
             email: Joi.string().email().required()
         });
