@@ -292,7 +292,7 @@ div.chart-block span.holyCount {
 div.chart-link-div {
     width: 200px;
     margin: 20px auto;
-    background-color: orange;
+    background-color: #EB3583;
     text-align: center;
     border-radius: 10px;
     padding: 10px;
@@ -339,10 +339,12 @@ span#login-status {
 
 .ten-chart-3blocks .nickname-div{
     text-align: center;
+    margin-top: 10px;
 }
 
 .ten-chart-3blocks .count-div{
-    color:red;
+    color:#A14740;
+    margin-top: 10px;
 }
 
 .ten-chart-3blocks img{
@@ -354,11 +356,17 @@ span#login-status {
     padding:30px;
 }
 .ten-chart div.border-top{
-    border-top:2px solid red;
+    border-top:2px solid #B59D9F;
+}
+
+.ten-chart div.after3-block{
+    border-bottom: 1px solid #EFEFEF;
+    padding:10px;
+    font-size: 1.2em;
 }
 
 .ten-chart div.border-bottom{
-    border-bottom:2px solid red;
+    border-bottom:2px solid #B59D9F;
 }
 
 /* RWD for PC  */

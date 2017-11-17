@@ -73,138 +73,24 @@
         <div class="row ten-chart-bottom-block">
             <div class="col-xs-12 border-top"></div>
             <div class="col-sm-6">
-                <div class="row">
+            {% for i in range(3,8) %} {% if first13InChart[i] %}
+                <div class="row after3-block">
                     <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
+                        No. {% if (i+1) >= 10 %} {{ i +1 }} {% else %} {{ "0"+(i+1) }} {% endif %} {{first13InChart[i].nickname}} 連續 {{first13InChart[i].mostHolyCount}} 聖杯
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
+            {% endif %} {% endfor %}
             </div>
             <div class="col-sm-6">
-                <div class="row">
+                {% for i in range(8,13) %} {% if first13InChart[i] %}
+                <div class="row after3-block">
                     <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
+                        No. {% if (i+1) >= 10 %} {{ i +1 }} {% else %} {{ "0"+(i+1) }} {% endif %} {{first13InChart[i].nickname}} 連續 {{first13InChart[i].mostHolyCount}} 聖杯
                     </div>
                 </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-12">
-                        No.4 嘿嘿taxi 連續 2聖杯
-                    </div>
-                </div>
+            {% endif %} {% endfor %}
             </div>
             <div class="col-xs-12 border-bottom"></div>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-<div class="container wrapper">
-    <div class="ten-chart">
-        <div class="row">
-            <div class="col-sm-2 col-sm-push-1">
-                <div class="row">
-                    <div class="rule-text-div">
-                        <div class="col-sm-12 rule-text">連續</div>
-                        <div class="col-sm-12 rule-text">聖杯</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-10 col-sm-push-1">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="chart-block">
-                            {% for i in range(0,5) %} {% if first13InChart[i] %}
-                            <div class="row">
-                                <div class="col-sm-12 chart-block-data-div">
-                                    <div class="no">No.{{ i+1 }} </div>
-                                    <span class="nickname">{{first13InChart[i].nickname}}</span>
-                                    <span class="holyCount">連續{{first13InChart[i].mostHolyCount}}聖杯</span>
-                                </div>
-                            </div>
-                            {% endif %} {% endfor %}
-                        </div>
-                    </div>
-
-                    <div class="col-sm-5">
-                        <div class="chart-block">
-                            {% for i in range(5,10) %} {% if first13InChart[i] %}
-                            <div class="row">
-                                <div class="col-sm-12 chart-block-data-div">
-                                    <div class="no">No.{{ i+1 }} </div>
-                                    <span class="nickname">{{first13InChart[i].nickname}}</span>
-                                    <span class="holyCount">連續{{first13InChart[i].mostHolyCount}}聖杯</span>
-                                </div>
-                            </div>
-                            {% endif %} {% endfor %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            {#
-            <div class="col-sm-8 col-sm-push-1">
-                <h1 style="color:white; text-align:center; font-size:1em;">前10名排行榜（待完成）</h1>
-            </div> #}
         </div>
 
         <div class="row">
@@ -216,6 +102,7 @@
 
             </div>
         </div>
+
     </div>
 </div>
 
