@@ -73,6 +73,20 @@ body {
 .game-stat-div {
     color: white;
     font-size: 2em;
+    margin: 0 10px;
+    padding: 20px;
+    border: 0.1px solid white;
+}
+
+.game-stat-block{
+    text-align: center;
+    font-size: 0.3em;
+}
+
+.right-border-block{
+    display: inline-block;
+    padding-right:20px;
+    border-right: 1px solid white;
 }
 
 .bobee-chart-header {
@@ -306,6 +320,13 @@ span#login-status {
     font-size: 1.2em;
 }
 
+.stat-number{
+    font-size: 4em;
+}
+
+
+
+/* RWD for PC  */
 @media screen and (min-width: 768px) {
     .banner-wrapper {
         margin-top: 40px;
@@ -404,5 +425,14 @@ span#login-status {
     }
     .fb-login-block {
         margin: 100px 0 10px 0;
+    }
+    .game-stat-block{
+        text-align: center;
+        font-size: 0.6em;
+    }
+
+    .stat-number{
+        text-align:left;
+        font-size: 3em;
     }
 }
