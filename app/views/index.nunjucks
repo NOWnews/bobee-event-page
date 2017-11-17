@@ -40,6 +40,121 @@
     </div> #}
 </div>
 
+
+
+<div class="container wrapper">
+    <div class="ten-chart">
+        <div class="ten-chart-head">
+            <div class="row">
+                <div class="col-sm-12">
+                    連續聖杯擲杯王
+                </div>
+            </div>
+        </div>
+
+        <div class="row ten-chart-3blocks">
+            {% for i in range(0,3) %} {% if first13InChart[i] %}
+            <div class="col-xs-4">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <img src="img/winner_{{i+1}}.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-xs-12 nickname-div">{{first13InChart[i].nickname}}</div>
+                            <div class="col-xs-12 count-div">連續 {{first13InChart[i].mostHolyCount}} 聖杯</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+        </div>
+
+        <div class="row ten-chart-bottom-block">
+            <div class="col-xs-12 border-top"></div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        No.4 嘿嘿taxi 連續 2聖杯
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 border-bottom"></div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
 <div class="container wrapper">
     <div class="ten-chart">
         <div class="row">
@@ -56,12 +171,12 @@
                 <div class="row">
                     <div class="col-sm-5">
                         <div class="chart-block">
-                            {% for i in range(0,5) %} {% if firstTenInChart[i] %}
+                            {% for i in range(0,5) %} {% if first13InChart[i] %}
                             <div class="row">
                                 <div class="col-sm-12 chart-block-data-div">
                                     <div class="no">No.{{ i+1 }} </div>
-                                    <span class="nickname">{{firstTenInChart[i].nickname}}</span>
-                                    <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
+                                    <span class="nickname">{{first13InChart[i].nickname}}</span>
+                                    <span class="holyCount">連續{{first13InChart[i].mostHolyCount}}聖杯</span>
                                 </div>
                             </div>
                             {% endif %} {% endfor %}
@@ -70,12 +185,12 @@
 
                     <div class="col-sm-5">
                         <div class="chart-block">
-                            {% for i in range(5,10) %} {% if firstTenInChart[i] %}
+                            {% for i in range(5,10) %} {% if first13InChart[i] %}
                             <div class="row">
                                 <div class="col-sm-12 chart-block-data-div">
                                     <div class="no">No.{{ i+1 }} </div>
-                                    <span class="nickname">{{firstTenInChart[i].nickname}}</span>
-                                    <span class="holyCount">連續{{firstTenInChart[i].mostHolyCount}}聖杯</span>
+                                    <span class="nickname">{{first13InChart[i].nickname}}</span>
+                                    <span class="holyCount">連續{{first13InChart[i].mostHolyCount}}聖杯</span>
                                 </div>
                             </div>
                             {% endif %} {% endfor %}
@@ -294,9 +409,9 @@
                     <h1 class="game-desc-title">第一階段： 11/20(一)-12/4(一)，共 15 天</h1>
                     <ul>
                         <li>1. 登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料</li>
-                        <li>2. 每日五次機會讓你試手氣設有即時排行榜隨時關注最新戰況</li>
+                        <li>2. 每日五次機會讓你試手氣，並設有即時排行榜隨時關注最新戰況</li>
                         <li>3. 天天回來試手氣，還能天天參加抽獎</li>
-                        <li>4. 排行榜前十名者12/XX來NOWnews挑戰騎回gogoro</li>
+                        <li>4. 排行榜前十名者 12/13 來NOWnews現場擲杯挑戰騎回gogoro</li>
                     </ul>
                 </div>
             </div>
@@ -305,7 +420,7 @@
                 <div class="col-sm-12">
                     <h1 class="game-desc-title">第二階段：12/13 AM 11:00</h1>
                     <p class="game-desc-content">
-                        12/23前十名擲筊好手齊聚NOWnews總公司一拚高下
+                        12/13 邀請前十名擲筊好手齊聚NOWnews總公司一拚高下
                     </p>
                     <ul>
                         <li>1. 現場請十位參賽者提供身分文件核對身分</li>

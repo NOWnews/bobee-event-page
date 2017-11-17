@@ -198,8 +198,17 @@ div.rule-text {
 }
 
 div.ten-chart {
-    background-color: black;
-    min-height: 200px;
+    background-color: white;
+    padding-bottom: 20px;
+}
+
+div.ten-chart-head{
+    color: white;
+    background-color: #1E1A16;
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px 0;
+    font-size: 1.8em;
 }
 
 div.articles {
@@ -324,7 +333,33 @@ span#login-status {
     font-size: 4em;
 }
 
+.ten-chart-3blocks{
+    text-align: center;
+}
 
+.ten-chart-3blocks .nickname-div{
+    text-align: center;
+}
+
+.ten-chart-3blocks .count-div{
+    color:red;
+}
+
+.ten-chart-3blocks img{
+    width:50%;
+    margin: 0 auto;
+}
+
+.ten-chart div.ten-chart-bottom-block{
+    padding:30px;
+}
+.ten-chart div.border-top{
+    border-top:2px solid red;
+}
+
+.ten-chart div.border-bottom{
+    border-bottom:2px solid red;
+}
 
 /* RWD for PC  */
 @media screen and (min-width: 768px) {
@@ -434,5 +469,18 @@ span#login-status {
     .stat-number{
         text-align:left;
         font-size: 3em;
+    }
+
+    div.ten-chart-head {
+        color: white;
+        background-color: #1E1A16;
+        text-align: center;
+        margin: 20px 0;
+        padding: 20px 0;
+        font-size: 2.5em;
+    }
+
+    .ten-chart-3blocks img{
+        float:right;
     }
 }

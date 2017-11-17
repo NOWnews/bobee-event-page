@@ -24,18 +24,18 @@ router.get('/', async function(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
     var isMobileOrTablet = md.mobile() || md.tablet() || false;
 
-    var firstTenInChart = await Chart.find({})
-            .limit(10)
+    var first13InChart = await Chart.find({})
+            .limit(13)
             .sort({
                 mostHolyCount: -1,
                 reachedTime: -1
             });
-    debug('firstTenInChart...',firstTenInChart);
+    debug('first13InChart...',first13InChart);
     res.render('index', {
         isMobileOrTablet: isMobileOrTablet,
         facebookAppId: config.facebook.appId,
         NODE_ENV: process.env.NODE_ENV || 'development',
-        firstTenInChart
+        first13InChart
     });
 });
 
@@ -364,7 +364,7 @@ router.get('/gamelog/:facebookId', async function(req, res, next) {
         req.query.perpage = parseInt(req.query.perpage, 10);
         req.query.page = parseInt(req.query.page, 10);
 
-        var perPage = req.query.perpage || 10;
+        var perPage = req.query.perpage || 20;
         var page = req.query.page >= 1 ? req.query.page : 1;
         var skip = page > 1 ? (page - 1) * perPage : 0;
 
