@@ -73,13 +73,13 @@
         <div class="row ten-chart-bottom-block">
             <div class="col-xs-12 border-top"></div>
             <div class="col-sm-6">
-            {% for i in range(3,8) %} {% if first13InChart[i] %}
+                {% for i in range(3,8) %} {% if first13InChart[i] %}
                 <div class="row after3-block">
                     <div class="col-sm-12">
                         No. {% if (i+1) >= 10 %} {{ i +1 }} {% else %} {{ "0"+(i+1) }} {% endif %} {{first13InChart[i].nickname}} 連續 {{first13InChart[i].mostHolyCount}} 聖杯
                     </div>
                 </div>
-            {% endif %} {% endfor %}
+                {% endif %} {% endfor %}
             </div>
             <div class="col-sm-6">
                 {% for i in range(8,13) %} {% if first13InChart[i] %}
@@ -88,7 +88,7 @@
                         No. {% if (i+1) >= 10 %} {{ i +1 }} {% else %} {{ "0"+(i+1) }} {% endif %} {{first13InChart[i].nickname}} 連續 {{first13InChart[i].mostHolyCount}} 聖杯
                     </div>
                 </div>
-            {% endif %} {% endfor %}
+                {% endif %} {% endfor %}
             </div>
             <div class="col-xs-12 border-bottom"></div>
         </div>
@@ -290,155 +290,162 @@
                             <li data-target="#carousel-example-captions" data-slide-to="2" class=""></li>
                         </ol>
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active left">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/img_0194.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
-                                <div class="carousel-caption">
-                                    <h3>First slide label</h3>
-                                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                                </div>
-                            </div>
-                            <div class="item next left">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1115bajian.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
-                                <div class="carousel-caption">
-                                    <h3>Second slide label</h3>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </div>
-                            </div>
                             <div class="item">
-                                <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1114-e9-9d-92-e5-b1-b1-e5-ae-ae-e6-8e-a1-e8-a8-aa_171115_0069.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
-                                <div class="carousel-caption">
-                                    <h3>Third slide label</h3>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                </div>
+                                <a href="https://bobee.nownews.com/20171115-15103/">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/img_0194.jpg?resize=1067%2C800&ssl=1" alt="" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        {# <h3>First slide label</h3> #}
+                                        <p>《保庇手冊》到烘爐地求錢母不藏私教學</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="item active">
+                                <a href="https://bobee.nownews.com/20171115-15088/">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1115bajian.jpg?w=960&ssl=1" alt="" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        {# <h3>Second slide label</h3> #}
+                                        <p>艋舺青山王祭－全台唯一的「青山宮八將團」</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="item">
+                                <a href="https://bobee.nownews.com/20171115-15094/">
+                                    <img src="https://i0.wp.com/bobee.nownews.com/wp-content/uploads/2017/11/1114-e9-9d-92-e5-b1-b1-e5-ae-ae-e6-8e-a1-e8-a8-aa_171115_0069.jpg?w=1478&ssl=1" alt="" class="img-responsive">
+                                    <div class="carousel-caption">
+                                        {# <h3>Third slide label</h3> #}
+                                        <p>艋舺青山王祭－行前愛注意</p>
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                        <a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span> </a> <a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a> 
+                        <a href="#carousel-example-captions" class="left carousel-control" role="button" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> <span class="sr-only">Previous</span>                            </a> <a href="#carousel-example-captions" class="right carousel-control" role="button" data-slide="next"> <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span> <span class="sr-only">Next</span> </a>
+                        </div>
                     </div>
                 </div>
+                <div class="col-sm-1"></div>
             </div>
-            <div class="col-sm-1"></div>
-        </div>
-        {% endif %}
-    </div>
-</div>
-
-<div class="container wrapper">
-    <div class="game-desc-div" id="activity">
-        <div class="articles-head">
-            <div class="row">
-                <div class="col-sm-12">
-                    活動說明
-                </div>
-            </div>
-        </div>
-        <div class="game-desc-div">
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="game-desc-title">第一階段： 11/20(一)-12/4(一)，共 15 天</h1>
-                    <ul>
-                        <li>1. 登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料</li>
-                        <li>2. 每日五次機會讓你試手氣，並設有即時排行榜隨時關注最新戰況</li>
-                        <li>3. 天天回來試手氣，還能天天參加抽獎</li>
-                        <li>4. 排行榜前十名者 12/13 來NOWnews現場擲杯挑戰騎回gogoro</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-12">
-                    <h1 class="game-desc-title">第二階段：12/13 AM 11:00</h1>
-                    <p class="game-desc-content">
-                        12/13 邀請前十名擲筊好手齊聚NOWnews總公司一拚高下
-                    </p>
-                    <ul>
-                        <li>1. 現場請十位參賽者提供身分文件核對身分</li>
-                        <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="row game-desc-award-img-div">
-                <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="/img/gift1.jpg" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">頭獎</h1>
-                            <p class="game-desc-award-desc">GOGORO</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="/img/gift2.jpg" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">貳獎</h1>
-                            <p class="game-desc-award-desc">米家掃地機器人</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="/img/gift3.jpg" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">三獎</h1>
-                            <p class="game-desc-award-desc">雀巢膠囊咖啡機</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-3">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <img src="/img/gift4.jpg" alt="" class="img-responsive game-desc-award-img">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h1 class="game-desc-award-title">參加獎</h1>
-                            <p class="game-desc-award-desc">？？？？？？</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row" id="other-desc">
-                <div class="col-sm-12">
-                    <h1 class="game-desc-title">其他說明</h1>
-                    <ul>
-                        <li>1. 依中華民國稅法規定，機會中獎之獎項價值超過新臺幣(以下同)20,000 元以上，需預先扣繳 10% 稅款（外籍人士需扣繳 20%），中獎贈品或獎金價值1,000以下者，得免計入申報所得稅，超過者，本公司會將填發扣（免）繳憑單予中獎人，中獎人於年度報稅時必須計入個人所得合併申報。若中獎人未能依法繳納扣繳稅款，即視為喪失得獎資格。</li>
-                        <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
-                    </ul>
-                </div>
-            </div>
-
-
+            {% endif %}
         </div>
     </div>
-</div>
+
+    <div class="container wrapper">
+        <div class="game-desc-div" id="activity">
+            <div class="articles-head">
+                <div class="row">
+                    <div class="col-sm-12">
+                        活動說明
+                    </div>
+                </div>
+            </div>
+            <div class="game-desc-div">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="game-desc-title">第一階段： 11/20(一)-12/4(一)，共 15 天</h1>
+                        <ul>
+                            <li>1. 登入並填寫參賽者資料 ※為維護您的權益，請正確填寫資料</li>
+                            <li>2. 每日五次機會讓你試手氣，並設有即時排行榜隨時關注最新戰況</li>
+                            <li>3. 天天回來試手氣，還能天天參加抽獎</li>
+                            <li>4. 排行榜前十名者 12/13 來NOWnews現場擲杯挑戰騎回gogoro</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="game-desc-title">第二階段：12/13 AM 11:00</h1>
+                        <p class="game-desc-content">
+                            12/13 邀請前十名擲筊好手齊聚NOWnews總公司一拚高下
+                        </p>
+                        <ul>
+                            <li>1. 現場請十位參賽者提供身分文件核對身分</li>
+                            <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
+                        </ul>
+                    </div>
+                </div>
 
 
-<div class="modal fade" id="contactInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="vertical-alignment-helper">
-        <div class="modal-dialog vertical-align-center">
-            <div class="modal-content">
-                <form id="contactInfoForm" class="" action="/contactInfo" method="POST">
-                    <div class="modal-header">
-                        {# <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> #}
+                <div class="row game-desc-award-img-div">
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img src="/img/gift1.jpg" alt="" class="img-responsive game-desc-award-img">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="game-desc-award-title">頭獎</h1>
+                                <p class="game-desc-award-desc">GOGORO</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img src="/img/gift2.jpg" alt="" class="img-responsive game-desc-award-img">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="game-desc-award-title">貳獎</h1>
+                                <p class="game-desc-award-desc">米家掃地機器人</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img src="/img/gift3.jpg" alt="" class="img-responsive game-desc-award-img">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="game-desc-award-title">三獎</h1>
+                                <p class="game-desc-award-desc">雀巢膠囊咖啡機</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <img src="/img/gift4.jpg" alt="" class="img-responsive game-desc-award-img">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="game-desc-award-title">參加獎</h1>
+                                <p class="game-desc-award-desc">？？？？？？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" id="other-desc">
+                    <div class="col-sm-12">
+                        <h1 class="game-desc-title">其他說明</h1>
+                        <ul>
+                            <li>1. 依中華民國稅法規定，機會中獎之獎項價值超過新臺幣(以下同)20,000 元以上，需預先扣繳 10% 稅款（外籍人士需扣繳 20%），中獎贈品或獎金價值1,000以下者，得免計入申報所得稅，超過者，本公司會將填發扣（免）繳憑單予中獎人，中獎人於年度報稅時必須計入個人所得合併申報。若中獎人未能依法繳納扣繳稅款，即視為喪失得獎資格。</li>
+                            <li>2. 現場依名次輪流擲筊，最高次數者為勝，贏得gogoro一台。(*相同聖杯次數者，將進行第二輪PK。)</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="contactInfoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog vertical-align-center">
+                <div class="modal-content">
+                    <form id="contactInfoForm" class="" action="/contactInfo" method="POST">
+                        <div class="modal-header">
+                            {# <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> #}
                             <h4 class="modal-title">中獎聯絡資料</h4>
                         </div>
                         <div class="modal-body">
@@ -469,38 +476,38 @@
                             {# <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> #}
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </div>
 
-        {% endblock %} {% block beforeBodyEnd %}
+    {% endblock %} {% block beforeBodyEnd %}
 
-        <script src="js/shake.js"></script>
-        <script src="js/animate.js"></script>
-        <script src="js/bobee-game.js"></script>
-        <script>
-            window.fbAsyncInit = function() {
-                FB.init({
-                    appId: '{{facebookAppId}}',
-                    cookie: true, // enable cookies to allow the server to access
-                    // the session
-                    xfbml: true, // parse social plugins on this page
-                    version: 'v2.10' // use graph api version 2.8
-                });
-                statusChangeCallback();
-            };
-            // Load the SDK asynchronously
-            (function(d, s, id) {
-                var js, fjs = d.getElementsByTagName(s)[0];
-                if (d.getElementById(id)) return;
-                js = d.createElement(s);
-                js.id = id;
-                js.src = "//connect.facebook.net/zh_TW/sdk.js";
-                fjs.parentNode.insertBefore(js, fjs);
-            }(document, 'script', 'facebook-jssdk'));
+    <script src="js/shake.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/bobee-game.js"></script>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId: '{{facebookAppId}}',
+                cookie: true, // enable cookies to allow the server to access
+                // the session
+                xfbml: true, // parse social plugins on this page
+                version: 'v2.10' // use graph api version 2.8
+            });
+            statusChangeCallback();
+        };
+        // Load the SDK asynchronously
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "//connect.facebook.net/zh_TW/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
 
-            $('.carousel').carousel();
-        </script>
-        <audio id="audio" style="display:none;" src="/audio/shaking-audio.ogg"></audio> {% endblock %}
+        $('.carousel').carousel();
+    </script>
+    <audio id="audio" style="display:none;" src="/audio/shaking-audio.ogg"></audio> {% endblock %}
